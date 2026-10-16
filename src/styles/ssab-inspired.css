@@ -531,10 +531,10 @@ body {
   box-shadow: 0 0 0 2px var(--orange);
   transform: translateX(-50%);
 }
-.timeline-marker span { position: absolute; top: -8px; z-index: 5; padding: 0 4px; background: var(--paper); color: var(--navy); font-size: .9rem; font-weight: 850; white-space: nowrap; }
+.timeline-marker span { position: absolute; top: 50%; left: 50%; z-index: 5; padding: 0; background: transparent; color: var(--navy); font-size: .82rem; font-weight: 900; line-height: 1; white-space: nowrap; transform: translate(-50%, -50%); }
 .timeline-card { position: absolute; top: auto; bottom: calc(100% - 10px); left: -40px; right: auto; width: calc(100% + 80px); height: auto; min-height: 150px; overflow: visible; padding: 20px 18px; border-top: 4px solid var(--orange); background: var(--navy); color: #fff; box-shadow: var(--shadow); }
 .timeline-item:nth-of-type(even) .timeline-card { top: 55px; bottom: auto; height: auto; min-height: 165px; }
-.timeline-item:nth-of-type(even) .timeline-marker span { top: auto; bottom: -8px; }
+.timeline-item:nth-of-type(even) .timeline-marker span { top: 50%; bottom: auto; }
 .timeline-card strong { display: block; margin-bottom: 10px; color: #ffb553; font-size: 1.12rem; }
 .timeline-card p { margin: 0; color: #d4dcf0; font-size: .84rem; line-height: 1.42; }
 .values-panel { margin-top: 42px; padding: 28px 32px; border-top: 2px solid var(--orange); background: rgba(255,255,255,.06); }
