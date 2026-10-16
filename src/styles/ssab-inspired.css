@@ -30,12 +30,16 @@ body {
 .topbar-contact {
   gap: 6px;
   color: var(--blue);
+  width: 30px;
+  justify-content: center;
 }
 
 .topbar-channels {
   margin-left: auto;
   gap: 10px;
 }
+
+.topbar .social-label { display: none; }
 
 .topbar .site-icon {
   margin-right: 0;
