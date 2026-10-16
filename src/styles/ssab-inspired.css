@@ -437,6 +437,23 @@ body {
     #0e214f;
 }
 
+.clients-section {
+  padding-block: clamp(72px, 8vw, 110px);
+  overflow: hidden;
+  color: #fff;
+  background: var(--blue);
+}
+
+.clients-section .eyebrow { color: #ffb553; }
+.clients-section .title { margin-bottom: 12px; }
+.clients-intro { max-width: 650px; margin: 0 0 34px; color: #d4dcf0; }
+.clients-carousel { overflow: hidden; }
+.clients-track { display: flex; gap: 24px; width: max-content; animation: clients-scroll 28s linear infinite; }
+.client-logo { display: grid; place-items: center; width: clamp(210px, 22vw, 280px); height: 126px; padding: 14px; flex: 0 0 auto; background: #fff; border: 2px solid var(--orange); }
+.client-logo img { width: 100%; height: 100%; object-fit: contain; }
+@keyframes clients-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 12px)); } }
+@media (prefers-reduced-motion: reduce) { .clients-track { animation: none; } }
+
 .principles-section::after {
   content: '';
   position: absolute;
