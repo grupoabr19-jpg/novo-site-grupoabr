@@ -10,6 +10,7 @@ export const site = {
   postalCode: '37600-000',
   instagram: 'https://www.instagram.com/grupoabr/',
   facebook: 'https://www.facebook.com/grupoabrcambui/',
+  linkedin: 'https://br.linkedin.com/company/grupoabrbrasil',
   tours: {
     cambui: 'https://www.tourbrasil360.com/',
     pinheiral: 'https://www.tourbrasil360.com/'
