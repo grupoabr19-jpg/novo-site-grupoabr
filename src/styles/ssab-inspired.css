@@ -702,6 +702,17 @@ body {
   object-fit: contain;
 }
 
+.pir-highlight { background: #fff; }
+.pir-highlight .product-feature-photo { background: #fff; box-shadow: none; }
+.pir-highlight .title { color: var(--ink); font-size: clamp(2.6rem, 4.5vw, 4.6rem); }
+.pir-highlight .lead { max-width: 620px; color: #303744; }
+.pir-highlight .actions { gap: 18px; }
+.pir-highlight .button { display: inline-flex; gap: 18px; border-radius: 999px; padding-inline: 28px 12px; }
+.pir-highlight .button .site-icon { display: grid; place-items: center; width: 36px; height: 36px; padding: 9px; background: #fff; border-radius: 50%; }
+.pir-primary { background: #0d3c87; border-color: #0d3c87; color: #fff; }
+.pir-vendor { background: #1d7d18; border-color: #1d7d18; color: #fff; }
+.pir-primary:hover, .pir-vendor:hover { color: #fff; filter: brightness(1.08); }
+
 .page-hero::after {
   width: 55vw;
   height: 180px;
