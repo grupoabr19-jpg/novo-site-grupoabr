@@ -28,13 +28,13 @@ export const products: Product[] = [
 ];
 
 export const families = [
-  ['Telhas e coberturas','/produtos/telhas-e-coberturas/','Coberturas simples, EPS, PIR, translúcidas e tipo forro.','01'],
-  ['Bobinas e chapas','/produtos/bobinas-e-chapas/','Aço plano, fitas, blanks, slitamento e corte.','02'],
-  ['Aços longos e laminados','/produtos/acos-longos-e-laminados/','Barras, cantoneiras, vergalhões e vigas.','03'],
-  ['Perfis estruturais','/produtos/perfis-estruturais/','Perfis U simples, enrijecidos e de encaixe.','04'],
-  ['Tubos e metalons','/produtos/tubos-e-metalons/','Seções redondas, quadradas e retangulares.','05'],
-  ['Malhas e treliças','/produtos/malhas-e-trelicas/','Soluções convencionais para construção civil.','06'],
-  ['Estruturas ABR Solar','/produtos/abr-solar/','Estruturas metálicas de solo monoposte.','07']
+  ['Telhas e coberturas','/produtos/telhas-e-coberturas/','Coberturas simples, EPS, PIR, translúcidas e tipo forro.','panels-top-left'],
+  ['Bobinas e chapas','/produtos/bobinas-e-chapas/','Aço plano, fitas, blanks, slitamento e corte.','layers'],
+  ['Aços longos e laminados','/produtos/acos-longos-e-laminados/','Barras, cantoneiras, vergalhões e vigas.','ruler'],
+  ['Perfis estruturais','/produtos/perfis-estruturais/','Perfis U simples, enrijecidos e de encaixe.','frame'],
+  ['Tubos e metalons','/produtos/tubos-e-metalons/','Seções redondas, quadradas e retangulares.','circle'],
+  ['Malhas e treliças','/produtos/malhas-e-trelicas/','Soluções convencionais para construção civil.','grid-3x3'],
+  ['Estruturas ABR Solar','/produtos/abr-solar/','Estruturas metálicas de solo monoposte.','sun']
 ];
 
 export const articles = [

@@ -246,6 +246,23 @@ body {
   mask: var(--icon-source) center / contain no-repeat;
 }
 
+.family .site-icon {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+  color: inherit;
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: #a95800;
+  background: #fff4e4;
+  border-radius: 50%;
+}
+
 .link-with-icon {
   display: inline-flex;
   align-items: center;
@@ -286,6 +303,14 @@ body {
   font-size: .73rem;
   text-transform: uppercase;
   letter-spacing: .16em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.home-task small .site-icon {
+  align-self: auto;
+  font-size: inherit;
 }
 
 .home-task strong {
@@ -370,6 +395,11 @@ body {
 .compare > div {
   min-height: 250px;
   padding: 38px;
+}
+
+.compare > div > .site-icon {
+  color: #a95800;
+  margin-bottom: 14px;
 }
 
 .band {
