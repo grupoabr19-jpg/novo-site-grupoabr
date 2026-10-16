@@ -478,6 +478,44 @@ body {
   margin-bottom: 14px;
 }
 
+.history-section { overflow: hidden; }
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(150px, 1fr));
+  gap: 16px;
+  padding-top: 44px;
+}
+.timeline-line {
+  position: absolute;
+  top: 68px;
+  left: 5%;
+  right: 5%;
+  height: 4px;
+  background: var(--orange);
+}
+.timeline-item { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.timeline-marker {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 6px solid var(--paper);
+  border-radius: 50%;
+  background: var(--orange);
+  color: var(--navy);
+  box-shadow: 0 0 0 2px var(--orange);
+}
+.timeline-marker span { position: absolute; top: -38px; color: var(--navy); font-size: .9rem; font-weight: 850; }
+.timeline-card { width: 100%; min-height: 190px; padding: 22px 20px; border-top: 4px solid var(--orange); background: var(--navy); color: #fff; box-shadow: var(--shadow); }
+.timeline-card strong { display: block; margin-bottom: 10px; color: #ffb553; font-size: 1.12rem; }
+.timeline-card p { margin: 0; color: #d4dcf0; font-size: .92rem; line-height: 1.5; }
+.values-panel { margin-top: 42px; padding: 28px 32px; border-top: 2px solid var(--orange); background: rgba(255,255,255,.06); }
+.values-panel .eyebrow { margin-bottom: 6px; color: #ffb553; }
+.values-panel h3 { margin: 0 0 18px; color: #fff; font-size: 1.45rem; }
+.values-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.values-list span { padding: 8px 13px; border: 1px solid rgba(255,255,255,.24); color: #dce3f3; font-size: .85rem; }
+
 .band {
   padding-block: 38px;
 }
@@ -745,6 +783,9 @@ footer {
 }
 
 @media (max-width: 900px) {
+  .timeline { grid-template-columns: repeat(3, minmax(170px, 1fr)); row-gap: 44px; }
+  .timeline-line { top: 68px; }
+  .timeline-card { min-height: 170px; }
   .nav { height: 70px; }
   .social-label { display: none; }
   .nav-wrap .brand { width: 96px; height: 50px; }
@@ -770,6 +811,11 @@ footer {
 }
 
 @media (max-width: 600px) {
+  .timeline { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding: 44px 8px 18px; margin-inline: -8px; }
+  .timeline-line { left: 30px; right: 30px; min-width: 900px; }
+  .timeline-item { flex: 0 0 240px; scroll-snap-align: start; }
+  .timeline-card { min-height: 190px; }
+  .values-panel { padding: 24px 20px; }
   .topbar { font-size: .72rem; }
   .topbar .container { gap: 10px; }
   .topbar-contact > .site-icon { display: none; }
