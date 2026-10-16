@@ -642,15 +642,17 @@ body {
 .section.soft .grid:has(.family) { grid-template-columns: repeat(4, 1fr); }
 
 .section.soft .grid:has(.family)::after {
-  content: 'Fale com nosso atendimento\\A\\A Envie produto, medidas, quantidade e cidade de entrega.';
+  content: 'Atendimento\A Fale com um especialista';
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   min-height: 270px;
   padding: 34px;
   white-space: pre-line;
   color: #fff;
   background: var(--blue);
-  font-size: 1.12rem;
+  text-align: center;
+  font-size: 1.22rem;
   font-weight: 750;
   line-height: 1.35;
   box-shadow: inset 0 5px 0 var(--orange);
