@@ -1,4 +1,20 @@
 ---
-import Base from '../layouts/Base.astro'; import Icon from '../components/Icon.astro'; import {families} from '../data/content';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+
+const works = [
+  { image: '/images/works/obra1-1.webp', title: 'Coberturas industriais', material: 'Telha termoacústica', text: 'Soluções de cobertura para proteger grandes vãos, melhorar o conforto térmico e acelerar a execução da obra.' },
+  { image: '/images/works/obra5.webp', title: 'Estruturas para galpões', material: 'Aço estrutural', text: 'Perfis e componentes dimensionados para estruturas metálicas, ampliações e espaços industriais.' },
+  { image: '/images/works/perfil-enrijecido-1.webp', title: 'Fechamentos e estruturas', material: 'Perfil U enrijecido', text: 'Perfis conformados para reforçar paredes, coberturas, mezaninos e sistemas de montagem.' },
+  { image: '/images/works/perfil-enrijecido-2.webp', title: 'Montagem metálica', material: 'Perfis estruturais', text: 'Aço pronto para aplicação, com padronização e agilidade na montagem em campo.' },
+  { image: '/images/works/perfil-simples-1.webp', title: 'Soluções leves', material: 'Perfil U simples', text: 'Perfis para fechamentos, divisórias e estruturas auxiliares em diferentes projetos.' },
+  { image: '/images/works/telha-metalica-1.webp', title: 'Cobertura metálica', material: 'Telha metálica trapezoidal', text: 'Telhas para coberturas e fachadas com resistência, rapidez de instalação e acabamento uniforme.' },
+  { image: '/images/works/telha-metalica-2.webp', title: 'Proteção e acabamento', material: 'Telha de aço', text: 'Aplicações em obras comerciais, industriais e agrícolas que exigem durabilidade e desempenho.' },
+  { image: '/images/works/viga-w-i.webp', title: 'Grandes vãos', material: 'Vigas W e I', text: 'Aços longos para vigas, pórticos e estruturas que precisam suportar grandes cargas.' },
+];
 ---
-<Base title="Obras e aplicações" description="Aplicações de produtos do Grupo ABR em coberturas, estruturas, indústria e energia solar."><header class="page-hero"><div class="container"><span class="eyebrow">Aplicações</span><h1 class="display">Do aço à obra.</h1><p class="lead">Entenda onde cada família pode entrar. Cases com localização, fotos e resultados serão publicados somente após validação do acervo.</p></div></header><section class="section"><div class="container"><div class="notice">As imagens e informações de obras do site anterior foram inventariadas, mas não são republicadas aqui até a confirmação de autoria e autorização de uso.</div><div class="grid" style="margin-top:40px">{families.map(f=><a class="family" href={f[1]}><b>Aplicação</b><h2>{f[0]}</h2><p>{f[2]}</p><span class="link-with-icon">Explorar <Icon name="arrow-right" size={17} /></span></a>)}</div></div></section></Base>
+
+<Base title="Obras e aplicações" description="Veja aplicações dos produtos do Grupo ABR em coberturas, estruturas, indústria e construção.">
+  <header class="page-hero"><div class="container"><span class="eyebrow">Aplicações</span><h1 class="display">Do aço à obra.</h1><p class="lead">Conheça algumas aplicações dos materiais do Grupo ABR em coberturas, estruturas metálicas e soluções para construção.</p></div></header>
+  <section class="section works-section"><div class="container"><div class="works-heading"><div><span class="eyebrow">Galeria de aplicações</span><h2 class="title">Materiais que ganham forma no projeto.</h2></div><p>Deslize para explorar. Passe o mouse sobre cada imagem para ver o material aplicado e o contexto da obra.</p></div><div class="works-carousel" aria-label="Carrossel de obras e aplicações">{works.map(work => <article class="work-card"><div class="work-image"><img src={work.image} alt={`${work.title} com ${work.material}`} loading="lazy" /><div class="work-overlay"><span>{work.material}</span><h3>{work.title}</h3><p>{work.text}</p><a href="/produtos/" class="link-with-icon">Conhecer produtos <Icon name="arrow-right" size={17} /></a></div></div></article>)}</div></div></section>
+</Base>
