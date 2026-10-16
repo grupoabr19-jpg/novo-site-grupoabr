@@ -494,8 +494,12 @@ body {
   height: 4px;
   background: var(--orange);
 }
-.timeline-item { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.timeline-item { position: relative; z-index: 1; min-height: 330px; display: block; }
 .timeline-marker {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
   display: grid;
   place-items: center;
   width: 52px;
@@ -505,9 +509,12 @@ body {
   background: var(--orange);
   color: var(--navy);
   box-shadow: 0 0 0 2px var(--orange);
+  transform: translateX(-50%);
 }
 .timeline-marker span { position: absolute; top: -38px; color: var(--navy); font-size: .9rem; font-weight: 850; }
-.timeline-card { width: 100%; min-height: 190px; padding: 22px 20px; border-top: 4px solid var(--orange); background: var(--navy); color: #fff; box-shadow: var(--shadow); }
+.timeline-card { position: absolute; top: 90px; left: 0; right: 0; width: 100%; min-height: 190px; padding: 22px 20px; border-top: 4px solid var(--orange); background: var(--navy); color: #fff; box-shadow: var(--shadow); }
+.timeline-item:nth-of-type(even) .timeline-card { top: auto; bottom: 0; }
+.timeline-item:nth-of-type(even) .timeline-marker span { top: auto; bottom: -38px; }
 .timeline-card strong { display: block; margin-bottom: 10px; color: #ffb553; font-size: 1.12rem; }
 .timeline-card p { margin: 0; color: #d4dcf0; font-size: .92rem; line-height: 1.5; }
 .values-panel { margin-top: 42px; padding: 28px 32px; border-top: 2px solid var(--orange); background: rgba(255,255,255,.06); }
