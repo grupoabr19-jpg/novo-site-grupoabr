@@ -16,7 +16,15 @@ const jsonLd = { '@context':'https://schema.org','@type':'Organization',name:sit
 </head><body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="site-header">
-  <div class="topbar"><div class="container"><a href={site.phoneHref}><Icon name="phone" size={15} /> Ligue: <strong>{site.phoneDisplay}</strong></a><span>Atendimento comercial</span><a href={wa} target="_blank" rel="noopener"><Icon name="whatsapp" size={16} brand /> WhatsApp {site.whatsappDisplay}</a></div></div>
+  <div class="topbar"><div class="container">
+    <a class="topbar-contact" href={site.phoneHref}><Icon name="phone" size={15} /> Ligue: <strong>{site.phoneDisplay}</strong></a>
+    <div class="topbar-channels">
+      <a class="topbar-contact topbar-whatsapp" href={wa} target="_blank" rel="noopener"><Icon name="whatsapp" size={16} brand /><span class="contact-label">WhatsApp {site.whatsappDisplay}</span></a>
+      <span class="social-label">Siga o Grupo ABR</span>
+      <a class="social-link" href={site.instagram} target="_blank" rel="noopener" aria-label="Instagram do Grupo ABR"><Icon name="instagram" size={16} brand /></a>
+      <a class="social-link" href={site.facebook} target="_blank" rel="noopener" aria-label="Facebook do Grupo ABR"><Icon name="facebook" size={16} brand /></a>
+    </div>
+  </div></div>
   <div class="nav-wrap"><div class="container nav"><a class="brand" href="/" aria-label="Grupo ABR — início"><img src="/brand/grupo-abr-logo-branca.svg" alt="Grupo ABR — Seu Parceiraço" width="130" height="76"></a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav"><Icon name="menu" size={21} /><span>Menu</span></button><nav id="main-nav" aria-label="Principal"><a href="/empresa/">Empresa</a><details><summary>Produtos e soluções</summary><div class="mega"><a href="/produtos/">Ver catálogo</a><a href="/produtos/telhas-e-coberturas/">Telhas e coberturas</a><a href="/produtos/bobinas-e-chapas/">Bobinas e chapas</a><a href="/produtos/acos-longos-e-laminados/">Aços longos</a><a href="/produtos/perfis-estruturais/">Perfis estruturais</a><a href="/produtos/tubos-e-metalons/">Tubos e metalons</a><a href="/produtos/abr-solar/">ABR Solar</a></div></details><details><summary>Conteúdos</summary><div class="mega compact"><a href="/blog/">Blog</a><a href="/downloads/">Downloads</a><a href="/obras-e-aplicacoes/">Obras e aplicações</a></div></details><a href="/tour-abr/">Tour ABR</a><a href="/contato/">Contato</a></nav><a class="button nav-cta" href={whatsappLink({interest:'uma cotação',page:'menu principal',position:'cabeçalho',code:'SITE-HEADER-COTAR'})} target="_blank" rel="noopener">Solicitar orçamento</a></div></div>
 </header>
 <main id="conteudo"><slot /></main>
