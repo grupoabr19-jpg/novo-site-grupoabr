@@ -373,7 +373,7 @@ body {
   border: 0;
   box-shadow: none;
   padding: 34px;
-  transition: background .2s ease, transform .2s ease;
+  transition: background .24s ease, transform .24s ease, box-shadow .24s ease, border-color .24s ease;
 }
 
 .family h2,
@@ -394,6 +394,61 @@ body {
   background: #fffaf2;
   transform: translateY(-4px);
   box-shadow: var(--shadow);
+}
+
+/* Interação consistente para todos os blocos que funcionam como cards. */
+.family,
+.compare > div,
+.home-task,
+.download,
+.article-card,
+.client-logo,
+.quote-box {
+  transition: transform .24s ease, box-shadow .24s ease, background-color .24s ease, border-color .24s ease;
+}
+
+.family:hover,
+.compare > div:hover,
+.home-task:hover,
+.download:hover,
+.article-card:hover,
+.client-logo:hover,
+.quote-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 34px rgba(20, 39, 88, .14);
+}
+
+.compare > div:hover {
+  position: relative;
+  z-index: 1;
+  background: #fffaf2;
+}
+
+.download:hover,
+.article-card:hover {
+  border-color: rgba(241, 136, 0, .55);
+}
+
+.client-logo:hover {
+  border-color: var(--orange);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .family,
+  .compare > div,
+  .home-task,
+  .download,
+  .article-card,
+  .client-logo,
+  .quote-box { transition: none; }
+  .family:hover,
+  .compare > div:hover,
+  .home-task:hover,
+  .download:hover,
+  .article-card:hover,
+  .client-logo:hover,
+  .quote-box:hover { transform: none; }
 }
 
 .split {
