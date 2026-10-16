@@ -478,7 +478,7 @@ body {
   margin-bottom: 14px;
 }
 
-.units-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.units-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
 .unit-card { min-width: 0; border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; }
 .unit-card:hover { transform: translateY(-5px); box-shadow: 0 20px 44px rgba(20,39,88,.16); }
 .unit-photo { height: 210px; overflow: hidden; background: linear-gradient(135deg, #dce2ee, #f8f9fb); }
