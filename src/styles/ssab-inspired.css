@@ -532,11 +532,11 @@ body {
   transform: translateX(-50%);
 }
 .timeline-marker span { position: absolute; top: -38px; color: var(--navy); font-size: .9rem; font-weight: 850; }
-.timeline-card { position: absolute; top: -170px; left: 0; right: 0; width: 100%; min-height: 150px; padding: 22px 20px; border-top: 4px solid var(--orange); background: var(--navy); color: #fff; box-shadow: var(--shadow); }
-.timeline-item:nth-of-type(even) .timeline-card { top: 75px; bottom: auto; }
+.timeline-card { position: absolute; top: -155px; left: -24px; right: auto; width: calc(100% + 48px); height: 150px; min-height: 0; overflow: hidden; padding: 20px 18px; border-top: 4px solid var(--orange); background: var(--navy); color: #fff; box-shadow: var(--shadow); }
+.timeline-item:nth-of-type(even) .timeline-card { top: 55px; bottom: auto; height: 165px; }
 .timeline-item:nth-of-type(even) .timeline-marker span { top: auto; bottom: -38px; }
 .timeline-card strong { display: block; margin-bottom: 10px; color: #ffb553; font-size: 1.12rem; }
-.timeline-card p { margin: 0; color: #d4dcf0; font-size: .92rem; line-height: 1.5; }
+.timeline-card p { margin: 0; color: #d4dcf0; font-size: .84rem; line-height: 1.42; }
 .values-panel { margin-top: 42px; padding: 28px 32px; border-top: 2px solid var(--orange); background: rgba(255,255,255,.06); }
 .values-panel .eyebrow { margin-bottom: 6px; color: #ffb553; }
 .values-panel h3 { margin: 0 0 18px; color: #fff; font-size: 1.45rem; }
@@ -817,7 +817,8 @@ footer {
   .timeline { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; grid-template-columns: none; padding: 180px 8px 160px; margin-inline: -8px; }
   .timeline-line { top: 206px; left: 30px; right: 30px; min-width: 1200px; }
   .timeline-item { flex: 0 0 185px; scroll-snap-align: start; }
-  .timeline-card { min-height: 170px; }
+  .timeline-card { min-height: 0; height: 150px; }
+  .timeline-item:nth-of-type(even) .timeline-card { height: 165px; }
   .nav { height: 70px; }
   .social-label { display: none; }
   .nav-wrap .brand { width: 96px; height: 50px; }
@@ -850,7 +851,8 @@ footer {
   .timeline-item { flex: 0 0 240px; min-height: 270px; scroll-snap-align: start; }
   .timeline-card { top: -130px; }
   .timeline-item:nth-of-type(even) .timeline-card { top: 70px; }
-  .timeline-card { min-height: 190px; }
+  .timeline-card { min-height: 0; height: 150px; }
+  .timeline-item:nth-of-type(even) .timeline-card { height: 165px; }
   .values-panel { padding: 24px 20px; }
   .topbar { font-size: .72rem; }
   .topbar .container { gap: 10px; }
