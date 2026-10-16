@@ -1,0 +1,19 @@
+---
+interface Props {
+  name: string;
+  size?: number;
+  label?: string;
+  brand?: boolean;
+}
+
+const { name, size = 20, label, brand = false } = Astro.props;
+const source = brand ? `/icons/brands/${name}.svg` : `/icons/ui/${name}.svg`;
+---
+
+<span
+  class="site-icon"
+  style={`--icon-source: url('${source}'); --icon-size: ${size}px`}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+></span>
