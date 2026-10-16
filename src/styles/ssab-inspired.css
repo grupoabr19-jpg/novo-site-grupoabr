@@ -567,8 +567,21 @@ body {
 .page-produtos-malhas-e-trelicas .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.75) 42%, rgba(14,33,79,.25) 100%), url('/images/products/trelica-web.jpg'); }
 .page-produtos-abr-solar .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.8) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-3019.jpg'); }
 
-.section.soft .grid:has(.family) .family:last-child {
-  grid-column: 2 / 4;
+.section.soft .grid:has(.family) { grid-template-columns: repeat(4, 1fr); }
+
+.section.soft .grid:has(.family)::after {
+  content: 'Fale com nosso atendimento\\A\\A Envie produto, medidas, quantidade e cidade de entrega.';
+  display: flex;
+  align-items: flex-end;
+  min-height: 270px;
+  padding: 34px;
+  white-space: pre-line;
+  color: #fff;
+  background: var(--blue);
+  font-size: 1.12rem;
+  font-weight: 750;
+  line-height: 1.35;
+  box-shadow: inset 0 5px 0 var(--orange);
 }
 
 .page-hero .lead {
@@ -656,7 +669,8 @@ footer {
   .principle-card { min-height: auto; }
   .product-hero-grid { grid-template-columns: 1fr; }
   .product-hero-photo { height: min(58vw, 420px); }
-  .section.soft .grid:has(.family) .family:last-child { grid-column: auto; }
+  .section.soft .grid:has(.family) { grid-template-columns: repeat(2, 1fr); }
+  .section.soft .grid:has(.family)::after { min-height: 220px; }
   .slider-ui { right: 24px; }
   .slide {
     background-image:
@@ -682,5 +696,6 @@ footer {
   .home-task:first-child { border-left: 0; }
   .industrial-art { min-height: 390px; }
   .product-feature-photo { min-height: 340px; }
+  .section.soft .grid:has(.family) { grid-template-columns: 1fr; }
   .compare > div { min-height: auto; }
 }
