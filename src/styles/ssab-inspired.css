@@ -30,8 +30,6 @@ body {
 .topbar-contact {
   gap: 6px;
   color: var(--blue);
-  width: 30px;
-  justify-content: center;
 }
 
 .topbar-channels {
