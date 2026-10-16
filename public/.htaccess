@@ -1,0 +1,28 @@
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^vergalhao-vergraf/?$ - [G,L]
+RewriteRule ^malha-vergraf/?$ - [G,L]
+RewriteRule ^orcamento/?$ /contato/ [R=301,L]
+RewriteRule ^telhas/?$ /produtos/telhas-e-coberturas/ [R=301,L]
+RewriteRule ^telha-termoacustica/?$ /produtos/telhas-sanduiche-eps/ [R=301,L]
+RewriteRule ^bobina-slitada/?$ /produtos/bobina-slitada/ [R=301,L]
+RewriteRule ^bobininha-slitada/?$ /produtos/bobininha-slitada/ [R=301,L]
+RewriteRule ^chapas-de-aco/?$ /produtos/chapas-de-aco-e-blanks/ [R=301,L]
+RewriteRule ^vergalhao/?$ /produtos/vergalhoes/ [R=301,L]
+RewriteRule ^tubos-e-metalons/?$ /produtos/tubos-e-metalons/ [R=301,L]
+RewriteRule ^perfil-estrutural/?$ /produtos/perfis-estruturais/ [R=301,L]
+</IfModule>
+<IfModule mod_deflate.c>AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml</IfModule>
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
+<FilesMatch "(^\.|package(-lock)?\.json|astro\.config\.mjs|tsconfig\.json)$"><IfModule mod_authz_core.c>Require all denied</IfModule></FilesMatch>

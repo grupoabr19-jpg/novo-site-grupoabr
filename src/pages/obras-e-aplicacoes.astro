@@ -1,0 +1,4 @@
+---
+import Base from '../layouts/Base.astro'; import {families} from '../data/content';
+---
+<Base title="Obras e aplicações" description="Aplicações de produtos do Grupo ABR em coberturas, estruturas, indústria e energia solar."><header class="page-hero"><div class="container"><span class="eyebrow">Aplicações</span><h1 class="display">Do aço à obra.</h1><p class="lead">Entenda onde cada família pode entrar. Cases com localização, fotos e resultados serão publicados somente após validação do acervo.</p></div></header><section class="section"><div class="container"><div class="notice">As imagens e informações de obras do site anterior foram inventariadas, mas não são republicadas aqui até a confirmação de autoria e autorização de uso.</div><div class="grid" style="margin-top:40px">{families.map(f=><a class="family" href={f[1]}><b>Aplicação</b><h2>{f[0]}</h2><p>{f[2]}</p><span>Explorar →</span></a>)}</div></div></section></Base>

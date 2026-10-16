@@ -1,0 +1,4 @@
+---
+import Base from '../../layouts/Base.astro'; import {products} from '../../data/content'; const list=products.filter(p=>p.family==='Telhas e coberturas');
+---
+<Base title="Telhas e coberturas" description="Compare telhas metálicas, EPS, PIR, translúcidas e tipo forro."><header class="page-hero"><div class="container"><div class="breadcrumbs"><a href="/">Início</a> / <a href="/produtos/">Produtos</a> / Telhas e coberturas</div><span class="eyebrow">Família de produtos</span><h1 class="display">Telhas e coberturas</h1><p class="lead">Geometria, material, revestimento, núcleo isolante e acabamento inferior são decisões diferentes. Aqui você começa pela composição certa.</p></div></header><section class="section"><div class="container"><div class="grid">{list.map(p=><a class="family" href={`/produtos/${p.slug}/`}><b>{p.eyebrow}</b><h2>{p.title}</h2><p>{p.intro}</p><span>Conhecer →</span></a>)}</div></div></section></Base>

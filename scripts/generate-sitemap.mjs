@@ -1,0 +1,3 @@
+import { readdir, stat, writeFile } from 'node:fs/promises'; import { join, relative } from 'node:path'; const root='dist'; const urls=[];
+async function walk(dir){for(const name of await readdir(dir)){const p=join(dir,name);const s=await stat(p);if(s.isDirectory())await walk(p);else if(name==='index.html'||name==='404.html'){let r=relative(root,p).replaceAll('\\','/').replace(/index\.html$/,'');if(!r.includes('404'))urls.push('https://grupoabr.com.br/'+r)}}}
+await walk(root); await writeFile(join(root,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u=>`<url><loc>${u}</loc></url>`).join('')}</urlset>`);
