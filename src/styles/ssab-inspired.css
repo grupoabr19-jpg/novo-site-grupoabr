@@ -426,8 +426,139 @@ body {
   background: #0e214f;
 }
 
+.principles-section {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(78px, 8vw, 112px);
+  background:
+    radial-gradient(circle at 92% 12%, rgba(241, 136, 0, .14), transparent 28%),
+    #0e214f;
+}
+
+.principles-section::after {
+  content: '';
+  position: absolute;
+  width: 430px;
+  height: 160px;
+  right: -115px;
+  bottom: -120px;
+  border: 18px solid rgba(241, 136, 0, .18);
+  border-radius: 50%;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.principles-heading {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+  align-items: end;
+  gap: clamp(35px, 7vw, 100px);
+  margin-bottom: clamp(38px, 5vw, 62px);
+}
+
+.principles-heading .title {
+  margin-bottom: 0;
+}
+
+.principles-heading > p {
+  max-width: 470px;
+  margin: 0 0 6px;
+  padding-left: 22px;
+  color: #d4dcf0;
+  border-left: 2px solid var(--orange);
+  font-size: 1.08rem;
+}
+
+.principles-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.principle-card {
+  min-height: 300px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, .17);
+  border-top: 3px solid var(--orange);
+  background: rgba(255, 255, 255, .055);
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.principle-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, .09);
+}
+
+.principle-icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 38px;
+  color: #0e214f;
+  background: var(--orange);
+  border-radius: 50%;
+}
+
+.principle-card > span {
+  color: #ffb553;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.principle-card h3 {
+  margin: 7px 0 12px;
+  color: #fff;
+  font-size: clamp(1.65rem, 2.2vw, 2.15rem);
+  line-height: 1.05;
+}
+
+.principle-card p {
+  margin: 0;
+  color: #d4dcf0;
+  line-height: 1.65;
+}
+
 .page-hero {
   padding: clamp(90px, 10vw, 155px) 0 clamp(80px, 9vw, 130px);
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.9) 43%, rgba(14,33,79,.58) 76%, rgba(14,33,79,.35) 100%), url('/images/heroes/img-2844.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.page-hero:has(~ .section.principles-section) {
+  background-image: linear-gradient(112deg, #ffe8c9 0%, #fff9f0 48%, #fff 100%), url('/brand/grupo-abr-logo-branca.svg');
+  background-size: cover, 520px auto;
+  background-position: center, 88% center;
+  background-repeat: no-repeat;
+  color: var(--navy);
+}
+
+.page-hero:has(~ .section.principles-section)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 8% 85%, rgba(241,136,0,.18), transparent 32%);
+  pointer-events: none;
+}
+
+.page-hero:has(~ .section.principles-section) .container { position: relative; z-index: 1; }
+.page-hero:has(~ .section.principles-section) .breadcrumbs a,
+.page-hero:has(~ .section.principles-section) .breadcrumbs { color: var(--navy); }
+.page-hero:has(~ .section.principles-section) .eyebrow { color: #a95800; }
+.page-hero:has(~ .section.principles-section) .lead { color: #4f5b70; max-width: 760px; }
+
+.section.soft .grid:has(.family) .family:last-child {
+  grid-column: 2 / 4;
 }
 
 .page-hero .lead {
@@ -510,8 +641,12 @@ footer {
   .home-actionbar .container { grid-template-columns: 1fr 1fr; }
   .home-task:nth-child(2) { border-right: 0; }
   .split { grid-template-columns: 1fr; }
+  .principles-heading { grid-template-columns: 1fr; }
+  .principles-grid { grid-template-columns: 1fr; }
+  .principle-card { min-height: auto; }
   .product-hero-grid { grid-template-columns: 1fr; }
   .product-hero-photo { height: min(58vw, 420px); }
+  .section.soft .grid:has(.family) .family:last-child { grid-column: auto; }
   .slider-ui { right: 24px; }
   .slide {
     background-image:
