@@ -9,6 +9,7 @@ public/images/clients/heineken.png — 1040 x 440 px
 public/images/clients/uniao-quimica.png — 1040 x 440 px
 public/images/clients/multilaser.png — 1040 x 440 px
 public/images/clients/adubos-real.png — 1040 x 440 px
+public/images/clients/desteel.png — 1040 x 440 px
 
 Cada logo será exibida em um cartão de aproximadamente 280 x 126 px. Centralizar a marca e manter margem interna generosa.
 
