@@ -5,6 +5,7 @@ import '../styles/global.css';
 import '../styles/ssab-inspired.css';
 const { title, description, canonical = Astro.url.pathname, image = '/og-default.svg' } = Astro.props;
 const fullTitle = title === site.name ? title : `${title} | ${site.name}`;
+const pageClass = `page-${Astro.url.pathname.replace(/^\//, '').replace(/\/$/, '').replace(/[^a-z0-9]+/gi, '-') || 'home'}`;
 const wa = whatsappLink({interest:'produtos e soluções em aço',page:Astro.url.pathname,position:'botão flutuante',code:'SITE-FLOAT-GERAL'});
 const jsonLd = { '@context':'https://schema.org','@type':'Organization',name:site.name,url:site.domain,email:site.email,telephone:site.phoneDisplay,address:{'@type':'PostalAddress',streetAddress:'Rua João Simões de Carvalho, 201-A, Bloco B',addressLocality:'Cambuí',addressRegion:'MG',postalCode:site.postalCode,addressCountry:'BR'} };
 ---
@@ -13,7 +14,7 @@ const jsonLd = { '@context':'https://schema.org','@type':'Organization',name:sit
 <meta name="description" content={description}><link rel="canonical" href={new URL(canonical,site.domain)}>
 <meta property="og:title" content={fullTitle}><meta property="og:description" content={description}><meta property="og:type" content="website"><meta property="og:url" content={new URL(canonical,site.domain)}><meta property="og:image" content={new URL(image,site.domain)}>
 <meta name="theme-color" content="#142758"><link rel="icon" href="/favicon.ico" sizes="any"><script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-</head><body>
+</head><body class={pageClass}>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="site-header">
   <div class="topbar"><div class="container">

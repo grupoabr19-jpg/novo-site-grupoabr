@@ -557,6 +557,14 @@ body {
 .page-hero:has(~ .section.principles-section) .eyebrow { color: #a95800; }
 .page-hero:has(~ .section.principles-section) .lead { color: #4f5b70; max-width: 760px; }
 
+.page-produtos-bobinas-e-chapas .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.86) 40%, rgba(14,33,79,.35) 100%), url('/images/heroes/img-2841.jpg'); }
+.page-produtos-acos-longos-e-laminados .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.84) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-2845.jpg'); }
+.page-produtos-telhas-e-coberturas .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.86) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-2844.jpg'); }
+.page-produtos-perfis-estruturais .page-hero,
+.page-produtos-tubos-e-metalons .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.84) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-2845.jpg'); }
+.page-produtos-malhas-e-trelicas .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.75) 42%, rgba(14,33,79,.25) 100%), url('/images/products/trelica-web.jpg'); }
+.page-produtos-abr-solar .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.8) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-3019.jpg'); }
+
 .section.soft .grid:has(.family) .family:last-child {
   grid-column: 2 / 4;
 }
