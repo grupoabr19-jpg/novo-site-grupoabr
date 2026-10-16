@@ -3,18 +3,49 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 
 const works = [
-  { image: '/images/works/obra1-1.webp', title: 'Coberturas industriais', material: 'Telha termoacústica', text: 'Soluções de cobertura para proteger grandes vãos, melhorar o conforto térmico e acelerar a execução da obra.' },
-  { image: '/images/works/obra5.webp', title: 'Estruturas para galpões', material: 'Aço estrutural', text: 'Perfis e componentes dimensionados para estruturas metálicas, ampliações e espaços industriais.' },
-  { image: '/images/works/perfil-enrijecido-1.webp', title: 'Fechamentos e estruturas', material: 'Perfil U enrijecido', text: 'Perfis conformados para reforçar paredes, coberturas, mezaninos e sistemas de montagem.' },
-  { image: '/images/works/perfil-enrijecido-2.webp', title: 'Montagem metálica', material: 'Perfis estruturais', text: 'Aço pronto para aplicação, com padronização e agilidade na montagem em campo.' },
-  { image: '/images/works/perfil-simples-1.webp', title: 'Soluções leves', material: 'Perfil U simples', text: 'Perfis para fechamentos, divisórias e estruturas auxiliares em diferentes projetos.' },
-  { image: '/images/works/telha-metalica-1.webp', title: 'Cobertura metálica', material: 'Telha metálica trapezoidal', text: 'Telhas para coberturas e fachadas com resistência, rapidez de instalação e acabamento uniforme.' },
+  { image: '/images/works/obra1-1.webp', title: 'Fechamentos e estruturas', material: 'Perfil U enrijecido', text: 'Perfis conformados para reforçar paredes, coberturas, mezaninos e sistemas de montagem.' },
+  { image: '/images/works/obra5.webp', title: 'Montagem metálica', material: 'Perfis estruturais', text: 'Aço pronto para aplicação, com padronização e agilidade na montagem em campo.' },
+  { image: '/images/works/perfil-enrijecido-1.webp', title: 'Soluções leves', material: 'Perfil U simples', text: 'Perfis para fechamentos, divisórias e estruturas auxiliares em diferentes projetos.' },
+  { image: '/images/works/perfil-enrijecido-2.webp', title: 'Estruturas para galpões', material: 'Aço estrutural', text: 'Perfis e componentes dimensionados para estruturas metálicas e espaços industriais.' },
+  { image: '/images/works/perfil-simples-1.webp', title: 'Grandes vãos', material: 'Vigas W e I', text: 'Aços longos para vigas, pórticos e estruturas que precisam suportar grandes cargas.' },
+  { image: '/images/works/telha-metalica-1.webp', title: 'Cobertura metálica', material: 'Telha trapezoidal simples', text: 'Telhas para coberturas e fachadas com resistência, rapidez de instalação e acabamento uniforme.' },
   { image: '/images/works/telha-metalica-2.webp', title: 'Proteção e acabamento', material: 'Telha de aço', text: 'Aplicações em obras comerciais, industriais e agrícolas que exigem durabilidade e desempenho.' },
-  { image: '/images/works/viga-w-i.webp', title: 'Grandes vãos', material: 'Vigas W e I', text: 'Aços longos para vigas, pórticos e estruturas que precisam suportar grandes cargas.' },
+  { image: '/images/works/viga-w-i.webp', title: 'Coberturas industriais', material: 'Telha termoacústica', text: 'Soluções de cobertura para proteger grandes vãos, melhorar o conforto térmico e acelerar a obra.' },
 ];
 ---
 
 <Base title="Obras e aplicações" description="Veja aplicações dos produtos do Grupo ABR em coberturas, estruturas, indústria e construção.">
   <header class="page-hero"><div class="container"><span class="eyebrow">Aplicações</span><h1 class="display">Do aço à obra.</h1><p class="lead">Conheça algumas aplicações dos materiais do Grupo ABR em coberturas, estruturas metálicas e soluções para construção.</p></div></header>
-  <section class="section works-section"><div class="container"><div class="works-heading"><div><span class="eyebrow">Galeria de aplicações</span><h2 class="title">Materiais que ganham forma no projeto.</h2></div><p>Deslize para explorar. Passe o mouse sobre cada imagem para ver o material aplicado e o contexto da obra.</p></div><div class="works-carousel" aria-label="Carrossel de obras e aplicações">{works.map(work => <article class="work-card"><div class="work-image"><img src={work.image} alt={`${work.title} com ${work.material}`} loading="lazy" /><div class="work-overlay"><span>{work.material}</span><h3>{work.title}</h3><p>{work.text}</p><a href="/produtos/" class="link-with-icon">Conhecer produtos <Icon name="arrow-right" size={17} /></a></div></div></article>)}</div></div></section>
+  <section class="section works-section"><div class="container">
+    <div class="works-heading"><div><span class="eyebrow">Galeria de aplicações</span><h2 class="title">Materiais que ganham forma no projeto.</h2></div><p>Explore os projetos do Grupo ABR. Use as setas ou arraste para navegar.</p></div>
+    <div class="works-carousel-wrap">
+      <button class="works-nav works-nav-prev" type="button" aria-label="Aplicação anterior"><Icon name="chevron-left" size={19} /></button>
+      <div class="works-carousel" aria-label="Carrossel de obras e aplicações">
+        {works.map((work, index) => <article class="work-card" data-card-index={index}>
+          <div class="work-image"><img src={work.image} alt={`${work.title} com ${work.material}`} loading={index < 3 ? 'eager' : 'lazy'} /><div class="work-overlay"><span>{work.material}</span><h3>{work.title}</h3><p>{work.text}</p><a href="/produtos/" class="link-with-icon">Conhecer produtos <Icon name="arrow-right" size={17} /></a></div></div>
+        </article>)}
+      </div>
+      <button class="works-nav works-nav-next" type="button" aria-label="Próxima aplicação"><Icon name="chevron-right" size={19} /></button>
+    </div>
+    <div class="works-carousel-footer"><div class="works-progress" aria-hidden="true"><span></span></div><span class="works-counter" aria-live="polite">01 / {String(works.length).padStart(2, '0')}</span></div>
+  </div></section>
 </Base>
+
+<script>
+  const carousel = document.querySelector('.works-carousel');
+  const cards = [...document.querySelectorAll('.work-card')];
+  const progress = document.querySelector('.works-progress span');
+  const counter = document.querySelector('.works-counter');
+  const cardStep = () => cards[0]?.getBoundingClientRect().width + 24 || 0;
+  const update = () => {
+    if (!carousel || !cards.length) return;
+    const index = Math.min(cards.length - 1, Math.max(0, Math.round(carousel.scrollLeft / cardStep())));
+    if (progress) (progress as HTMLElement).style.width = `${((index + 1) / cards.length) * 100}%`;
+    if (counter) counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
+  };
+  document.querySelector('.works-nav-prev')?.addEventListener('click', () => carousel?.scrollBy({ left: -cardStep(), behavior: 'smooth' }));
+  document.querySelector('.works-nav-next')?.addEventListener('click', () => carousel?.scrollBy({ left: cardStep(), behavior: 'smooth' }));
+  carousel?.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+</script>
