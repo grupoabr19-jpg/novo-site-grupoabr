@@ -36,4 +36,7 @@ const jsonLd = { '@context':'https://schema.org','@type':'Organization',name:sit
   document.addEventListener('click',e=>{const a=(e.target as Element).closest('a');if(!a)return; if(a.href.includes('wa.me')) window.dataLayer?.push({event:'whatsapp_click',page_path:location.pathname,cta_code:new URL(a.href).searchParams.get('text')?.match(/Código: ([^.]+)/)?.[1]||'unknown'}); if(a.href.startsWith('tel:')) window.dataLayer?.push({event:'phone_click',page_path:location.pathname});});
   declare global { interface Window { dataLayer?: Record<string,unknown>[] } }
 </script>
+<script>
+  if(location.pathname==='/empresa/'||location.pathname==='/empresa'){const art=document.querySelector<HTMLElement>('.industrial-art');if(art){const video=document.createElement('div');video.className='institutional-video';video.innerHTML='<iframe src="https://www.youtube.com/embed/OZMYY4WcHbk?start=3&rel=0" title="Vídeo institucional do Grupo ABR" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';art.replaceWith(video);}}
+</script>
 </body></html>
