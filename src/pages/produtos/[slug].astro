@@ -4,7 +4,6 @@ import { products, productRouteSlug } from '../../data/content';
 
 export function getStaticPaths() {
   return products
-    .filter((product) => product.slug !== 'telhas')
     .map((product) => ({ params: { slug: productRouteSlug(product.slug) }, props: { product } }));
 }
 

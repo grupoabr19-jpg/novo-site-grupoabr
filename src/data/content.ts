@@ -32,6 +32,8 @@ export const products: Product[] = [
 
 const originalProductContent: Record<string, Partial<Product>> = {
   'bobininha-slitada': {
+    image: '/images/products/legacy/bobininha-slitada.jpg',
+    imageAlt: 'Bobininhas slitadas galvanizadas armazenadas na operação do Grupo ABR',
     sourceParagraphs: [
       'Bobina galvanizada e Galvalume, também conhecida como Bobininha ou Rolinho Calheiro, é uma solução versátil para quem busca qualidade e durabilidade em instalações externas e internas.',
       'O Grupo ABR produz bobina galvanizada e Galvalume sob medida. Os materiais recebem acabamento em zinco e alumínio, proporcionando longevidade e estética para o projeto.',
@@ -39,12 +41,16 @@ const originalProductContent: Record<string, Partial<Product>> = {
     ]
   },
   'bobina-slitada': {
+    image: '/images/products/legacy/bobina-slitada.png',
+    imageAlt: 'Bobinas de aço utilizadas no processo de corte longitudinal',
     sourceParagraphs: [
       'Um processo contínuo de corte longitudinal (Slitter/Rolo), produzido em espessuras de 0,41 mm a 6,30 mm, em materiais laminados a frio, laminados a quente, galvanizados ou Galvalume.',
       'Esta solução pode ser aplicada na indústria metalúrgica para a produção de tubos, perfis, estruturas em aço, móveis, peças e autopeças, entre outros.'
     ]
   },
   'chapas-de-aco': {
+    image: '/images/products/legacy/chapas-de-aco.png',
+    imageAlt: 'Medição de espessura em uma chapa de aço',
     sourceParagraphs: [
       'Chapas produzidas por corte transversal, com espessuras de 0,41 mm a 51 mm, lisas ou xadrez, em materiais laminados a quente, laminados a frio, galvanizados e Galvalume. Podem ser cortadas sob medida, com larguras de 1.200 mm a 1.500 mm.',
       'Blanks são chapas cortadas sob medida tanto na largura quanto no comprimento. Os cortes são produzidos em espessuras de 0,41 mm a 12,5 mm, em materiais laminados a quente, laminados a frio, galvanizados e Galvalume.'
@@ -57,6 +63,8 @@ const originalProductContent: Record<string, Partial<Product>> = {
     ]
   },
   laminados: {
+    image: '/images/products/legacy/laminados.png',
+    imageAlt: 'Cantoneiras de aço laminado empilhadas',
     sourceParagraphs: [
       'Os laminados são amplamente utilizados na construção civil e na indústria de transformação por sua resistência, durabilidade e versatilidade.',
       'Na construção civil, destacam-se em estruturas metálicas, coberturas, revestimentos e pisos industriais, em obras como edifícios, galpões e pontes. Na indústria de transformação, são aplicados em máquinas, veículos, embalagens e no setor naval.',
@@ -71,12 +79,16 @@ const originalProductContent: Record<string, Partial<Product>> = {
     ]
   },
   malha: {
+    image: '/images/products/legacy/malha.jpg',
+    imageAlt: 'Malhas de aço nervurado empilhadas',
     sourceParagraphs: [
       'A Malha Beneficiada do Grupo ABR é produzida em aço CA-60 nervurado, com formato semelhante a uma tela. É utilizada na construção de lajes em concreto armado, pisos industriais e estruturas pré-moldadas.',
       'Resistente e prática, é soldada em todos os pontos de cruzamento para proporcionar melhor ancoragem e segurança ao projeto.'
     ]
   },
   'perfil-estrutural': {
+    image: '/images/products/legacy/perfil-estrutural.jpg',
+    imageAlt: 'Perfis estruturais simples e enrijecidos',
     sourceParagraphs: [
       'O Perfil Estrutural oferece rapidez, economia e segurança para o empreendimento.',
       'É amplamente utilizado na construção civil, em empreendimentos industriais, comerciais ou residenciais, proporcionando acabamento superficial e planicidade adequados ao revestimento, alinhamento, cálculo e dimensionamento do projeto. Forma estruturas leves, regulares, amplas e de fácil execução.',
@@ -89,6 +101,8 @@ const originalProductContent: Record<string, Partial<Product>> = {
     ]
   },
   telhas: {
+    image: '/images/products/legacy/telhas.jpg',
+    imageAlt: 'Telha metálica trapezoidal',
     sourceParagraphs: ['As Telhas do Grupo ABR são produzidas de acordo com os padrões e as normas vigentes, com qualidade e durabilidade.'],
     alert: {
       title:'Atenção: instalação de telhas pré-pintadas',
@@ -106,9 +120,13 @@ const originalProductContent: Record<string, Partial<Product>> = {
     ]
   },
   trelica: {
+    image: '/images/products/legacy/trelica.jpg',
+    imageAlt: 'Treliça de aço nervurado para construção civil',
     sourceParagraphs: ['Fabricada em aço nervurado, a Treliça do Grupo ABR é resistente e utilizada para dar sustentação às obras. Seu formato versátil distribui a carga e permite absorver impactos e o peso das construções com segurança.']
   },
   'tubos-e-metalons': {
+    image: '/images/products/legacy/tubos-e-metalons.jpg',
+    imageAlt: 'Tubos e metalons em diferentes formatos e dimensões',
     sourceParagraphs: ['Muito utilizados em obras de grande porte, tubos e metalons são conhecidos pela versatilidade. Sua composição com outros elementos cria possibilidades que vão da construção à fabricação de grades, portas e janelas.'],
     sections: [
       { title:'Tubo redondo', paragraphs:['Conhecido pela alta resistência mecânica e durabilidade, é utilizado na construção civil, no agronegócio e na indústria, em portões, cercas, corrimões, postes, grades, bancos, estruturas metálicas, suportes e pontos de ônibus.'] },
@@ -119,6 +137,8 @@ const originalProductContent: Record<string, Partial<Product>> = {
     ]
   },
   vergalhao: {
+    image: '/images/products/legacy/vergalhao.jpg',
+    imageAlt: 'Vergalhões nervurados em diferentes diâmetros',
     sourceParagraphs: ['O Grupo ABR possui dois tipos de vergalhão beneficiado para levar à construção qualidade e o reforço estrutural adequado às necessidades do projeto.'],
     sections: [
       { title:'Vergalhão CA-50', paragraphs:['Indicado para estruturas de concreto armado, como lajes, vigas e colunas, em pequenas construções, indústrias e empreendimentos. Sua superfície nervurada amplia a aderência ao concreto e proporciona resistência à obra.'] },
@@ -126,35 +146,28 @@ const originalProductContent: Record<string, Partial<Product>> = {
     ]
   },
   'viga-w-e-i': {
+    image: '/images/products/legacy/viga-w-e-i.jpeg',
+    imageAlt: 'Vigas estruturais de aço com perfis W e I',
     sourceParagraphs: ['A Viga W é utilizada principalmente em casas, galpões, quadras, pontes, ferrovias e outros projetos. Possui abas paralelas que permitem melhores ligações, encaixes e acabamentos estruturais. Já a Viga I proporciona encaixe preciso entre as peças e bom acabamento.']
   }
 };
 
 products.forEach((product) => Object.assign(product, originalProductContent[product.slug]));
 
-const productRouteAliases: Record<string, string> = {
-  'chapas-de-aco': 'chapas-de-aco-e-blanks',
-  'malha': 'malhas-de-aco',
-  'perfil-estrutural': 'perfis-estruturais',
-  'trelica': 'trelicas',
-  'vergalhao': 'vergalhoes',
-  'viga-w-e-i': 'vigas-w-e-i'
-};
-
-export const productRouteSlug = (slug: string) => productRouteAliases[slug] ?? slug;
+export const productRouteSlug = (slug: string) => slug;
 
 export const families = [
   ['Bobininha Slitada','/produtos/bobininha-slitada/','Bobinas menores para calhas, rufos, dutos e condutores.','layers'],
   ['Bobina Slitada','/produtos/bobina-slitada/','Aço cortado longitudinalmente para processos industriais.','layers'],
-  ['Chapas de Aço','/produtos/chapas-de-aco-e-blanks/','Chapas lisas, xadrez e blanks cortados sob medida.','frame'],
+  ['Chapas de Aço','/produtos/chapas-de-aco/','Chapas lisas, xadrez e blanks cortados sob medida.','frame'],
   ['Laminados','/produtos/laminados/','Barras chatas, quadradas, redondas, cantoneiras e ferro T.','ruler'],
-  ['Malha','/produtos/malhas-de-aco/','Malha CA-60 para lajes, pisos e estruturas pré-moldadas.','grid-3x3'],
-  ['Perfil Estrutural','/produtos/perfis-estruturais/','Perfis simples, de encaixe e U enrijecido.','frame'],
-  ['Telhas','/produtos/telhas-e-coberturas/','Modelos metálicos, ondulados, translúcidos e termoacústicos.','panels-top-left'],
-  ['Treliça','/produtos/trelicas/','Componentes em aço nervurado para sistemas construtivos.','grid-3x3'],
+  ['Malha','/produtos/malha/','Malha CA-60 para lajes, pisos e estruturas pré-moldadas.','grid-3x3'],
+  ['Perfil Estrutural','/produtos/perfil-estrutural/','Perfis simples, de encaixe e U enrijecido.','frame'],
+  ['Telhas','/produtos/telhas/','Modelos metálicos, ondulados, translúcidos e termoacústicos.','panels-top-left'],
+  ['Treliça','/produtos/trelica/','Componentes em aço nervurado para sistemas construtivos.','grid-3x3'],
   ['Tubos e Metalons','/produtos/tubos-e-metalons/','Seções redondas, quadradas, elípticas, retangulares e oblongas.','circle'],
-  ['Vergalhão','/produtos/vergalhoes/','Vergalhões CA-50 e CA-60 para concreto armado.','ruler'],
-  ['Viga W e I','/produtos/vigas-w-e-i/','Perfis para estruturas metálicas e obras de diferentes portes.','frame']
+  ['Vergalhão','/produtos/vergalhao/','Vergalhões CA-50 e CA-60 para concreto armado.','ruler'],
+  ['Viga W e I','/produtos/viga-w-e-i/','Perfis para estruturas metálicas e obras de diferentes portes.','frame']
 ];
 
 export const articles = [

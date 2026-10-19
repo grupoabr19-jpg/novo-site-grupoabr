@@ -1,9 +1,0 @@
----
-import ProductDetail from '../../components/ProductDetail.astro';
-import { products } from '../../data/content';
-
-const product = products.find((item) => item.slug === 'telhas');
-if (!product) throw new Error('Conteúdo da página de telhas não encontrado.');
----
-
-<ProductDetail product={product} />

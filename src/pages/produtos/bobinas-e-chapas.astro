@@ -1,4 +1,0 @@
----
-import Base from '../../layouts/Base.astro'; import Icon from '../../components/Icon.astro'; import {products} from '../../data/content'; const list=products.filter(p=>p.family==='Bobinas, chapas e corte'||p.family==='Serviços');
----
-<Base title="Bobinas, chapas e corte" description="Bobinas slitadas, bobininhas, chapas, blanks e serviços de slitamento e corte."><header class="page-hero"><div class="container"><span class="eyebrow">Aço plano</span><h1 class="display">Bobinas, chapas e corte</h1><p class="lead">Materiais e transformação para abastecer processos industriais, perfilação, serralheria e fabricação.</p></div></header><section class="section"><div class="container grid">{list.map(p=><a class="family" href={`/produtos/${p.slug}/`}><b>{p.eyebrow}</b><h2>{p.title}</h2><p>{p.intro}</p><span class="link-with-icon">Conhecer <Icon name="arrow-right" size={17} /></span></a>)}</div></section></Base>

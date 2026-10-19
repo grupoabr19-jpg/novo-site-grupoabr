@@ -98,6 +98,19 @@ body {
 
 .nav-wrap .mega {
   color: var(--ink);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+}
+
+#main-nav > details[open].is-visible > .mega {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition-delay: 0s;
 }
 
 .nav-wrap .products-menu {
@@ -796,12 +809,17 @@ body {
 .page-hero:has(~ .section.principles-section) .eyebrow { color: #a95800; }
 .page-hero:has(~ .section.principles-section) .lead { color: #4f5b70; max-width: 760px; }
 
-.page-produtos-bobinas-e-chapas .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.86) 40%, rgba(14,33,79,.35) 100%), url('/images/heroes/img-2841.jpg'); }
-.page-produtos-acos-longos-e-laminados .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.84) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-2845.jpg'); }
-.page-produtos-telhas-e-coberturas .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.86) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-2844.jpg'); }
-.page-produtos-perfis-estruturais .page-hero,
+.page-produtos-bobininha-slitada .page-hero,
+.page-produtos-bobina-slitada .page-hero,
+.page-produtos-chapas-de-aco .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.86) 40%, rgba(14,33,79,.35) 100%), url('/images/heroes/img-2841.jpg'); }
+.page-produtos-laminados .page-hero,
+.page-produtos-vergalhao .page-hero,
+.page-produtos-viga-w-e-i .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.84) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-2845.jpg'); }
+.page-produtos-telhas .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.86) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-2844.jpg'); }
+.page-produtos-perfil-estrutural .page-hero,
 .page-produtos-tubos-e-metalons .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.84) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-2845.jpg'); }
-.page-produtos-malhas-e-trelicas .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.75) 42%, rgba(14,33,79,.25) 100%), url('/images/products/trelica-web.jpg'); }
+.page-produtos-malha .page-hero,
+.page-produtos-trelica .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.75) 42%, rgba(14,33,79,.25) 100%), url('/images/products/trelica-web.jpg'); }
 .page-produtos-abr-solar .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.8) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-3019.jpg'); }
 
 .section.soft .grid:has(.family) { grid-template-columns: repeat(4, 1fr); }

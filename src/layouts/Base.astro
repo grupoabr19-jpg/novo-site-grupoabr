@@ -36,15 +36,15 @@ const jsonLd = { '@context':'https://schema.org','@type':'Organization',name:sit
         <div class="mega products-menu">
           <a href="/produtos/bobininha-slitada/">Bobininha Slitada</a>
           <a href="/produtos/bobina-slitada/">Bobina Slitada</a>
-          <a href="/produtos/chapas-de-aco-e-blanks/">Chapas de Aço</a>
+          <a href="/produtos/chapas-de-aco/">Chapas de Aço</a>
           <a href="/produtos/laminados/">Laminados</a>
-          <a href="/produtos/malhas-de-aco/">Malha</a>
-          <a href="/produtos/perfis-estruturais/">Perfil Estrutural</a>
-          <a href="/produtos/telhas-e-coberturas/">Telhas</a>
-          <a href="/produtos/trelicas/">Treliça</a>
+          <a href="/produtos/malha/">Malha</a>
+          <a href="/produtos/perfil-estrutural/">Perfil Estrutural</a>
+          <a href="/produtos/telhas/">Telhas</a>
+          <a href="/produtos/trelica/">Treliça</a>
           <a href="/produtos/tubos-e-metalons/">Tubos e Metalons</a>
-          <a href="/produtos/vergalhoes/">Vergalhão</a>
-          <a href="/produtos/vigas-w-e-i/">Viga W e I</a>
+          <a href="/produtos/vergalhao/">Vergalhão</a>
+          <a href="/produtos/viga-w-e-i/">Viga W e I</a>
         </div>
       </details>
       <details>
@@ -69,7 +69,7 @@ const jsonLd = { '@context':'https://schema.org','@type':'Organization',name:sit
   </div></div>
 </header>
 <main id="conteudo"><slot /></main>
-<footer><div class="container footer-grid"><div><a class="brand inverse" href="/"><img src="/brand/grupo-abr-logo-branca.svg" alt="Grupo ABR — Seu Parceiraço" width="150" height="87"></a><p>Força para construir. Agilidade para entregar. Parceria para crescer.</p></div><div><h2>Produtos</h2><a href="/produtos/telhas-e-coberturas/">Telhas e coberturas</a><a href="/produtos/bobinas-e-chapas/">Bobinas e chapas</a><a href="/produtos/acos-longos-e-laminados/">Aços longos</a><a href="/produtos/abr-solar/">ABR Solar</a></div><div><h2>Grupo ABR</h2><a href="/empresa/">Empresa</a><a href="/blog/">Blog</a><a href="/downloads/">Downloads</a><a href="/trabalhe-conosco/">Trabalhe conosco</a><a href="/seja-um-parceiraco/">Seja um Parceiraço</a></div><div><h2>Fale conosco</h2><a href={site.phoneHref}>{site.phoneDisplay}</a><a href={`mailto:${site.email}`}>{site.email}</a><p>{site.address}<br>CEP {site.postalCode}</p></div></div><div class="container footer-bottom"><span>© {new Date().getFullYear()} Grupo ABR. Todos os direitos reservados.</span><span><a href="/politica-de-privacidade/">Privacidade</a> · <a href="/politica-de-cookies/">Cookies</a></span></div></footer>
+<footer><div class="container footer-grid"><div><a class="brand inverse" href="/"><img src="/brand/grupo-abr-logo-branca.svg" alt="Grupo ABR — Seu Parceiraço" width="150" height="87"></a><p>Força para construir. Agilidade para entregar. Parceria para crescer.</p></div><div><h2>Produtos</h2><a href="/produtos/telhas/">Telhas</a><a href="/produtos/bobina-slitada/">Bobina Slitada</a><a href="/produtos/laminados/">Laminados</a><a href="/produtos/abr-solar/">ABR Solar</a></div><div><h2>Grupo ABR</h2><a href="/empresa/">Empresa</a><a href="/blog/">Blog</a><a href="/downloads/">Downloads</a><a href="/trabalhe-conosco/">Trabalhe conosco</a><a href="/seja-um-parceiraco/">Seja um Parceiraço</a></div><div><h2>Fale conosco</h2><a href={site.phoneHref}>{site.phoneDisplay}</a><a href={`mailto:${site.email}`}>{site.email}</a><p>{site.address}<br>CEP {site.postalCode}</p></div></div><div class="container footer-bottom"><span>© {new Date().getFullYear()} Grupo ABR. Todos os direitos reservados.</span><span><a href="/politica-de-privacidade/">Privacidade</a> · <a href="/politica-de-cookies/">Cookies</a></span></div></footer>
 <a class="float-wa" href={wa} target="_blank" rel="noopener" aria-label="Falar com o Grupo ABR pelo WhatsApp"><Icon name="whatsapp" size={28} brand /></a>
 <script>
   const btn=document.querySelector('.menu-toggle'); const nav=document.querySelector('#main-nav'); btn?.addEventListener('click',()=>{const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));nav?.classList.toggle('open',!open)});
@@ -80,20 +80,29 @@ const jsonLd = { '@context':'https://schema.org','@type':'Organization',name:sit
     let closeTimer:number|undefined;
     const openDropdown=()=>{
       window.clearTimeout(closeTimer);
-      dropdowns.forEach(item=>{if(item!==dropdown)item.open=false});
+      dropdowns.forEach(item=>{
+        if(item!==dropdown){item.classList.remove('is-visible');item.open=false}
+      });
       dropdown.open=true;
+      window.requestAnimationFrame(()=>dropdown.classList.add('is-visible'));
     };
-    const closeDropdown=()=>{
+    const closeDropdown=(keepForFocus=true)=>{
       window.clearTimeout(closeTimer);
+      const isActive=()=>dropdown.matches(':hover')||(keepForFocus&&dropdown.matches(':focus-within'));
+      if(!isActive())dropdown.classList.remove('is-visible');
       closeTimer=window.setTimeout(()=>{
-        if(!dropdown.matches(':hover')&&!dropdown.matches(':focus-within'))dropdown.open=false;
-      },140);
+        if(!isActive())dropdown.open=false;
+      },180);
     };
 
     dropdown.addEventListener('pointerenter',()=>{if(hoverNavigation.matches)openDropdown()});
-    dropdown.addEventListener('pointerleave',()=>{if(hoverNavigation.matches)closeDropdown()});
-    dropdown.addEventListener('focusin',openDropdown);
-    dropdown.addEventListener('focusout',closeDropdown);
+    dropdown.addEventListener('pointerleave',()=>{if(hoverNavigation.matches)closeDropdown(false)});
+    dropdown.addEventListener('focusin',()=>{if(hoverNavigation.matches)openDropdown()});
+    dropdown.addEventListener('focusout',()=>closeDropdown(true));
+    dropdown.addEventListener('toggle',()=>{
+      if(!dropdown.open)dropdown.classList.remove('is-visible');
+      else window.requestAnimationFrame(()=>dropdown.classList.add('is-visible'));
+    });
     dropdown.querySelector('summary')?.addEventListener('click',event=>{
       if(hoverNavigation.matches&&event.detail>0)event.preventDefault();
     });
