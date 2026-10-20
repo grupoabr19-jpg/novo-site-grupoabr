@@ -92,7 +92,7 @@ const jsonLd = { '@context':'https://schema.org','@type':'Organization',name:sit
       if(!isActive())dropdown.classList.remove('is-visible');
       closeTimer=window.setTimeout(()=>{
         if(!isActive())dropdown.open=false;
-      },180);
+      },320);
     };
 
     dropdown.addEventListener('pointerenter',()=>{if(hoverNavigation.matches)openDropdown()});
