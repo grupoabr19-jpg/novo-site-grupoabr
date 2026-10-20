@@ -86,6 +86,35 @@ function activeJobs(rows) {
     .sort((a, b) => a.order - b.order || a.title.localeCompare(b.title, 'pt-BR'));
 }
 
+async function publicVacancyRows() {
+  if (!spreadsheetId) throw new Error('ID da planilha não configurado');
+  const url = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(spreadsheetId)}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent('Vagas')}`;
+  const response = await fetch(url, { signal: AbortSignal.timeout(10000) });
+  if (!response.ok) throw new Error(`Planilha pública indisponível (${response.status})`);
+
+  const body = await response.text();
+  const start = body.indexOf('{');
+  const end = body.lastIndexOf('}');
+  if (start < 0 || end <= start) throw new Error('Resposta inválida da planilha pública');
+
+  const payload = JSON.parse(body.slice(start, end + 1));
+  if (payload.status !== 'ok' || !payload.table?.rows) throw new Error('A planilha pública retornou um erro');
+  return payload.table.rows.map(row => (row.c || []).map(cell => cell?.f ?? cell?.v ?? ''));
+}
+
+async function vacancyRows() {
+  if (process.env.GOOGLE_SERVICE_ACCOUNT_JSON) {
+    try {
+      const { sheets } = clients();
+      const response = await sheets.spreadsheets.values.get({ spreadsheetId, range: 'Vagas!A2:M1000' });
+      return response.data.values || [];
+    } catch (error) {
+      console.warn('Leitura autenticada das vagas falhou; tentando planilha pública:', error.message);
+    }
+  }
+  return publicVacancyRows();
+}
+
 function detectFile(file) {
   const ext = path.extname(file.originalname || '').toLowerCase();
   const data = file.buffer;
@@ -131,10 +160,9 @@ app.get('/health', (_req, res) => {
 
 app.get('/api/vagas', async (_req, res) => {
   try {
-    const { sheets } = clients();
-    const response = await sheets.spreadsheets.values.get({ spreadsheetId, range: 'Vagas!A2:M1000' });
+    const rows = await vacancyRows();
     res.setHeader('Cache-Control', 'public, max-age=120, stale-while-revalidate=600');
-    res.json({ jobs: activeJobs(response.data.values || []) });
+    res.json({ jobs: activeJobs(rows) });
   } catch (error) {
     console.error('Falha ao carregar vagas:', error.message);
     res.status(503).json({ error: 'As vagas não puderam ser carregadas agora.' });
@@ -163,8 +191,7 @@ app.post('/api/candidaturas', upload.single('curriculo'), async (req, res) => {
     const { drive, sheets } = clients();
     await ensureFolderIsPrivate(drive);
     if (jobId !== 'banco-de-talentos') {
-      const vacancies = await sheets.spreadsheets.values.get({ spreadsheetId, range: 'Vagas!A2:M1000' });
-      const selectedJob = activeJobs(vacancies.data.values || []).find(job => job.id === jobId);
+      const selectedJob = activeJobs(await vacancyRows()).find(job => job.id === jobId);
       if (!selectedJob) return res.status(400).json({ error: 'A vaga selecionada não está mais disponível. Escolha outra opção.' });
       jobTitle = selectedJob.title;
     }
