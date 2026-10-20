@@ -1393,7 +1393,7 @@ footer {
 .careers-hero {
   position: relative;
   overflow: hidden;
-  padding: clamp(82px, 10vw, 150px) 0;
+  padding: clamp(52px, 6vw, 86px) 0 clamp(110px, 10vw, 150px);
   color: #fff;
   background:
     radial-gradient(circle at 86% 18%, rgba(245, 139, 0, .26), transparent 28%),
