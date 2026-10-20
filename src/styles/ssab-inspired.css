@@ -1397,7 +1397,8 @@ footer {
   color: #fff;
   background:
     radial-gradient(circle at 86% 18%, rgba(245, 139, 0, .26), transparent 28%),
-    linear-gradient(125deg, #0c193a 0%, #142758 62%, #243a7c 100%);
+    linear-gradient(125deg, rgba(12, 25, 58, .96) 0%, rgba(20, 39, 88, .88) 58%, rgba(36, 58, 124, .82) 100%),
+    url('/images/heroes/empresa-aerea.jpg') center 64% / cover no-repeat;
 }
 
 .careers-hero::before {
