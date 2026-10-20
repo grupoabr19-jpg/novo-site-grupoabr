@@ -6,6 +6,9 @@ services:
     buildCommand: npm ci && npm run build
     staticPublishPath: dist
     autoDeployTrigger: commit
+    envVars:
+      - key: PUBLIC_CAREERS_API_URL
+        value: https://grupo-abr-careers-api.onrender.com
     previews:
       generation: automatic
     headers:
@@ -21,3 +24,23 @@ services:
       - path: /_astro/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
+
+  - type: web
+    name: grupo-abr-careers-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: node server/careers-api.mjs
+    autoDeployTrigger: commit
+    healthCheckPath: /health
+    envVars:
+      - key: GOOGLE_SERVICE_ACCOUNT_JSON
+        sync: false
+      - key: GOOGLE_DRIVE_FOLDER_ID
+        value: 1Rw8QjmYkGjvtG4MWQ3K7cXvLNWfNW2t5
+      - key: GOOGLE_SHEETS_ID
+        value: 1Vd_DKQXtpORMmeMT-JA6H7tWeyqWghfu2s3ROa_50yY
+      - key: ALLOWED_ORIGINS
+        value: https://grupoabr.com.br,https://www.grupoabr.com.br,https://grupo-abr-preview.onrender.com
+      - key: MAX_FILE_BYTES
+        value: 5242880
