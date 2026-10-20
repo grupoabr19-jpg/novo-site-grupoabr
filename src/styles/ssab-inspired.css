@@ -163,6 +163,24 @@ body {
   transition: background-color .2s ease, color .2s ease, transform .2s ease;
 }
 
+.nav-cta {
+  min-height: 40px;
+  padding-inline: 16px;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, .48);
+  color: #fff;
+  background: transparent;
+  font-size: .78rem;
+  letter-spacing: .01em;
+}
+
+.nav-cta:hover {
+  border-color: var(--orange);
+  color: var(--navy);
+  background: var(--orange);
+  transform: none;
+}
+
 .button:hover {
   background: #ff9a16;
   transform: translateY(-1px);

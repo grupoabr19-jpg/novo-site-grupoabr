@@ -9,6 +9,7 @@ export const site = {
   address: 'Rua João Simões de Carvalho, 201-A, Bloco B, Cambuí — MG',
   postalCode: '37600-000',
   instagram: 'https://www.instagram.com/grupoabr/',
+  tiktok: 'https://www.tiktok.com/@grupo.abr',
   facebook: 'https://www.facebook.com/grupoabrcambui/',
   linkedin: 'https://br.linkedin.com/company/grupoabrbrasil',
   tours: {
