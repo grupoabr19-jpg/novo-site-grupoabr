@@ -1,9 +1,24 @@
+import blogArticles from './articles.json';
+
 export type Product = {
   slug: string; family: string; title: string; eyebrow: string; intro: string;
   description: string; sourceParagraphs?: string[]; applications: string[]; benefits: string[]; options: string[];
   quote: string; related: string[]; note?: string; image?: string; imageAlt?: string;
   sections?: { title: string; paragraphs: string[]; bullets?: string[] }[];
   alert?: { title: string; paragraphs: string[] };
+};
+
+export type BlogArticle = {
+  slug: string;
+  title: string;
+  category: string;
+  summary: string;
+  date: string;
+  dateDisplay: string;
+  intro: string;
+  sections: { heading: string; body: string }[];
+  checklist: { title: string; items: string[] };
+  note: string;
 };
 
 const common = 'A especificação final deve considerar projeto, aplicação, medidas, espessura, acabamento e condições de uso. A equipe comercial pode apoiar a identificação do item, sem substituir o dimensionamento técnico.';
@@ -170,13 +185,4 @@ export const families = [
   ['Viga W e I','/produtos/viga-w-e-i/','Perfis para estruturas metálicas e obras de diferentes portes.','frame']
 ];
 
-export const articles = [
-  {slug:'telha-pir-ou-eps',title:'Telha PIR ou EPS: o que avaliar antes de escolher',category:'Engenharia e aplicação',summary:'Compare núcleo, acabamento, requisitos do projeto e documentação sem reduzir a decisão a uma única variável.',date:'2026-10-16'},
-  {slug:'como-solicitar-orcamento-de-telhas',title:'Como solicitar um orçamento de telhas com as informações certas',category:'Soluções ABR',summary:'Um checklist simples para informar perfil, medidas, acabamento, quantidade e local de entrega.',date:'2026-10-16'},
-  {slug:'perfil-u-simples-e-enrijecido',title:'Perfil U simples e enrijecido: diferenças e aplicações',category:'Inteligência do aço',summary:'Entenda a geometria das seções e por que a escolha precisa seguir o projeto.',date:'2026-10-16'},
-  {slug:'tubo-metalon-e-barra-macica',title:'Tubo, metalon e barra maciça: como distinguir',category:'Do aço à obra',summary:'Seção vazada ou maciça? Veja o que muda ao descrever o material.',date:'2026-10-16'},
-  {slug:'bobininha-e-bobina-slitada',title:'Bobininha e bobina slitada: aplicações e informações para cotar',category:'Inteligência do aço',summary:'Largura, espessura, peso e aplicação ajudam a formar uma cotação mais precisa.',date:'2026-10-16'},
-  {slug:'transporte-e-armazenamento-de-telhas',title:'Cuidados no transporte e armazenamento de telhas',category:'Engenharia e aplicação',summary:'Boas práticas para reduzir umidade, riscos e danos antes da instalação.',date:'2026-10-16'},
-  {slug:'comprar-chapas-de-aco',title:'O que considerar ao comprar chapas de aço',category:'Negócios que crescem com aço',summary:'Material, processo, dimensão e acabamento: os dados que orientam a escolha.',date:'2026-10-16'},
-  {slug:'lista-de-materiais-para-cotacao',title:'Como organizar a lista de materiais para cotação de aço',category:'Soluções ABR',summary:'Transforme o levantamento do projeto em uma solicitação objetiva e conferível.',date:'2026-10-16'}
-];
+export const articles: BlogArticle[] = blogArticles;

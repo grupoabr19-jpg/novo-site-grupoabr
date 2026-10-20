@@ -483,6 +483,13 @@ body {
   border-color: rgba(241, 136, 0, .55);
 }
 
+.article-card time {
+  display: block;
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: .86rem;
+}
+
 .client-logo:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, .2);
 }
