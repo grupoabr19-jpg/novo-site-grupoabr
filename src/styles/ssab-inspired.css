@@ -495,14 +495,16 @@ body {
   .download,
   .article-card,
   .client-logo,
-  .quote-box { transition: none; }
+  .quote-box,
+  .catalog-specialist-card { transition: none; }
   .family:hover,
   .compare > div:hover,
   .home-task:hover,
   .download:hover,
   .article-card:hover,
   .client-logo:hover,
-  .quote-box:hover { transform: none; }
+  .quote-box:hover,
+  .catalog-specialist-card:hover { transform: none; }
 }
 
 .split {
@@ -567,6 +569,23 @@ body {
 
 .home-intro .industrial-art {
   min-height: 540px;
+}
+
+.home-intro-photo {
+  min-height: 540px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--blue);
+  box-shadow: var(--shadow);
+}
+
+.home-intro-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 540px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .institutional-video { min-height: 570px; overflow: hidden; background: #0e214f; box-shadow: var(--shadow); }
@@ -857,23 +876,55 @@ body {
 .page-produtos-trelica .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.75) 42%, rgba(14,33,79,.25) 100%), url('/images/products/trelica-web.jpg'); }
 .page-produtos-abr-solar .page-hero { background-image: linear-gradient(90deg, rgba(14,33,79,.98) 0%, rgba(14,33,79,.8) 42%, rgba(14,33,79,.3) 100%), url('/images/heroes/img-3019.jpg'); }
 
-.section.soft .grid:has(.family) { grid-template-columns: repeat(4, 1fr); }
+.home-catalog .grid { grid-template-columns: repeat(4, 1fr); }
 
-.section.soft .grid:has(.family)::after {
-  content: 'Atendimento\A Fale com um especialista';
+.catalog-specialist-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   min-height: 270px;
   padding: 34px;
-  white-space: pre-line;
   color: #fff;
   background: var(--blue);
   text-align: center;
-  font-size: 1.22rem;
-  font-weight: 750;
-  line-height: 1.35;
   box-shadow: inset 0 5px 0 var(--orange);
+  transition: transform .24s ease, box-shadow .24s ease, background-color .24s ease;
+}
+
+.catalog-specialist-card small {
+  color: #ffbd66;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.catalog-specialist-card strong {
+  max-width: 190px;
+  font-size: 1.22rem;
+  line-height: 1.35;
+}
+
+.catalog-specialist-card span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  color: #fff;
+  font-size: .86rem;
+  font-weight: 700;
+}
+
+.catalog-specialist-card:hover,
+.catalog-specialist-card:focus-visible {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  background: #203a84;
+  transform: translateY(-5px);
+  box-shadow: inset 0 5px 0 var(--orange), 0 16px 34px rgba(20, 39, 88, .24);
 }
 
 .page-home .section.soft .grid:has(.family) .link-with-icon { display: none; }
@@ -1091,7 +1142,9 @@ footer {
   .home-intro .split { grid-template-columns: 1fr; gap: 42px; }
   .home-intro-copy { padding-block: 0; }
   .home-intro-copy .title { max-width: 720px; }
-  .home-intro .industrial-art { min-height: 440px; }
+  .home-intro .industrial-art,
+  .home-intro-photo,
+  .home-intro-photo img { min-height: 440px; }
   .testimonial-stage { width: min(600px, 76vw); min-height: 430px; }
   .testimonial-card { min-height: 360px; padding: 54px 36px 42px; }
   .testimonials-carousel { gap: 18px; }
@@ -1122,8 +1175,8 @@ footer {
   .principle-card { min-height: auto; }
   .product-hero-grid { grid-template-columns: 1fr; }
   .product-hero-photo { height: min(58vw, 420px); }
-  .section.soft .grid:has(.family) { grid-template-columns: repeat(2, 1fr); }
-  .section.soft .grid:has(.family)::after { min-height: 220px; }
+  .home-catalog .grid { grid-template-columns: repeat(2, 1fr); }
+  .catalog-specialist-card { min-height: 220px; }
   .slider-ui { right: 24px; }
   .slide {
     background-image:
@@ -1140,7 +1193,9 @@ footer {
   .home-intro-copy .title span { display: inline; white-space: normal; }
   .home-intro-copy .title span + span::before { content: ' '; }
   .home-intro-copy .button { align-self: stretch; }
-  .home-intro .industrial-art { min-height: 360px; }
+  .home-intro .industrial-art,
+  .home-intro-photo,
+  .home-intro-photo img { min-height: 360px; }
   .testimonials-section { padding-block: 64px; }
   .testimonials-carousel { gap: 8px; }
   .testimonial-stage { width: calc(100vw - 88px); min-height: 410px; }
@@ -1179,6 +1234,6 @@ footer {
   .institutional-video,
   .institutional-video iframe { min-height: 390px; }
   .product-feature-photo { min-height: 340px; }
-  .section.soft .grid:has(.family) { grid-template-columns: 1fr; }
+  .home-catalog .grid { grid-template-columns: 1fr; }
   .compare > div { min-height: auto; }
 }
