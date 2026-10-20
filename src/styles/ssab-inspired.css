@@ -735,9 +735,12 @@ body {
 .clients-section .title { margin-bottom: 12px; }
 .clients-intro { max-width: 650px; margin: 0 0 34px; color: #d4dcf0; }
 .clients-carousel { overflow: hidden; }
-.clients-track { display: flex; gap: 24px; width: max-content; animation: clients-scroll 28s linear infinite; }
+.clients-track { display: flex; gap: 24px; width: max-content; animation: clients-scroll 46s linear infinite; }
 .client-logo { display: grid; place-items: center; width: clamp(210px, 22vw, 280px); height: 126px; padding: 0; flex: 0 0 auto; overflow: hidden; background: #fff; border: 2px solid var(--orange); }
 .client-logo img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.045); }
+.client-logo:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+.clients-carousel:hover .clients-track,
+.clients-carousel:focus-within .clients-track { animation-play-state: paused; }
 @keyframes clients-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 12px)); } }
 @media (prefers-reduced-motion: reduce) { .clients-track { animation: none; } }
 
