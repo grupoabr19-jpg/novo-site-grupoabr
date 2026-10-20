@@ -2,10 +2,46 @@
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
 import { articles } from '../../data/content';
+import blogImages from '../../data/blog-images.json';
 import { whatsappLink } from '../../config';
+
+const imageSlugs = new Set(blogImages);
+
 export function getStaticPaths() {
-  return articles.map((article) => ({ params: { slug: article.slug }, props: { article } }));
+  return articles.map(article => ({ params: { slug: article.slug }, props: { article } }));
 }
+
 const { article } = Astro.props;
+const hasImage = imageSlugs.has(article.slug);
+const imagePath = hasImage ? `/images/blog/${article.slug}.webp` : undefined;
 ---
-<Base title={article.title} description={article.summary}><header class="page-hero"><div class="container"><div class="breadcrumbs"><a href="/">Início</a> / <a href="/blog/">Blog</a> / {article.title}</div><span class="eyebrow">{article.category}</span><h1 class="display">{article.title}</h1><p class="lead">{article.summary}</p><small>Por Grupo ABR · Publicado em <time datetime={article.date}>{article.dateDisplay}</time></small></div></header><section class="section"><div class="container product-layout"><article class="content"><p class="lead">{article.intro}</p>{article.sections.map(section => <Fragment><h2>{section.heading}</h2><p>{section.body}</p></Fragment>)}<h2>{article.checklist.title}</h2><ul>{article.checklist.items.map(item => <li>{item}</li>)}</ul><p class="notice">{article.note}</p><h2>Leia também</h2><a class="link-with-icon" href="/blog/">Ver todos os conteúdos do Grupo ABR <Icon name="arrow-right" size={17} /></a></article><aside><div class="quote-box"><span class="eyebrow">Ficou com uma dúvida?</span><h2>Converse sobre este assunto.</h2><p>Abra o WhatsApp com o tema do artigo já identificado.</p><a class="button" href={whatsappLink({interest:article.title,page:`artigo ${article.title}`,position:'CTA lateral',code:`SITE-BLOG-${article.slug.toUpperCase().slice(0,14)}`})} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} brand /> Falar com atendimento</a></div></aside></div></section></Base>
+<Base title={article.title} description={article.summary} image={imagePath}>
+  <header class="page-hero blog-article-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="/">Início</a> / <a href="/blog/">Blog</a> / {article.title}</div>
+      <span class="eyebrow">{article.category}</span>
+      <h1 class="display">{article.title}</h1>
+      <p class="lead">{article.summary}</p>
+      <small>Por Grupo ABR · Publicado em <time datetime={article.date}>{article.dateDisplay}</time></small>
+    </div>
+  </header>
+  {hasImage && (
+    <div class="container blog-featured-wrap">
+      <figure class="blog-featured"><img src={imagePath} alt={`Imagem de capa do artigo ${article.title}`} width="1440" height="810" decoding="async" /></figure>
+    </div>
+  )}
+  <section class:list={['section', 'blog-article-content', { 'has-featured': hasImage }]}>
+    <div class="container product-layout">
+      <article class="content">
+        <p class="lead">{article.intro}</p>
+        {article.sections.map(section => <Fragment><h2>{section.heading}</h2><p>{section.body}</p></Fragment>)}
+        <h2>{article.checklist.title}</h2>
+        <ul>{article.checklist.items.map(item => <li>{item}</li>)}</ul>
+        <p class="notice">{article.note}</p>
+        <h2>Leia também</h2>
+        <a class="link-with-icon" href="/blog/">Ver todos os conteúdos do Grupo ABR <Icon name="arrow-right" size={17} /></a>
+      </article>
+      <aside><div class="quote-box"><span class="eyebrow">Ficou com uma dúvida?</span><h2>Converse sobre este assunto.</h2><p>Abra o WhatsApp com o tema do artigo já identificado.</p><a class="button" href={whatsappLink({interest:article.title,page:`artigo ${article.title}`,position:'CTA lateral',code:`SITE-BLOG-${article.slug.toUpperCase().slice(0,14)}`})} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} brand /> Falar com atendimento</a></div></aside>
+    </div>
+  </section>
+</Base>

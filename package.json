@@ -8,7 +8,8 @@
     "build": "astro check && astro build && node scripts/generate-sitemap.mjs",
     "preview": "astro preview",
     "check": "astro check",
-    "verify": "node scripts/validate-build.mjs"
+    "verify": "node scripts/validate-build.mjs",
+    "images:blog": "node scripts/import-blog-images.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -17,5 +18,8 @@
     "googleapis": "^186.0.0",
     "multer": "^2.4.0",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
   }
 }

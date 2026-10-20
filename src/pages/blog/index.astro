@@ -1,4 +1,52 @@
 ---
-import Base from '../../layouts/Base.astro'; import Icon from '../../components/Icon.astro'; import {articles} from '../../data/content';
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { articles } from '../../data/content';
+import blogImages from '../../data/blog-images.json';
+
+const imageSlugs = new Set(blogImages);
 ---
-<Base title="Blog" description="100 artigos sobre aço, coberturas, especificação, compra e aplicações."><header class="page-hero"><div class="container"><span class="eyebrow">Conteúdo técnico</span><h1 class="display">Informação que ajuda a escolher e cotar.</h1><p class="lead">100 leituras práticas sobre produtos, aplicações, mercado e preparação de pedidos.</p></div></header><section class="section"><div class="container"><div class="filter-bar" aria-label="Filtrar artigos"><button class="active" data-filter="todos">Todos</button>{[...new Set(articles.map(a=>a.category))].map(c=><button data-filter={c}>{c}</button>)}</div><div id="articles">{articles.map(a=><article class="article-card" data-category={a.category}><span class="eyebrow">{a.category}</span><h2><a href={`/blog/${a.slug}/`}>{a.title}</a></h2><p>{a.summary}</p><time datetime={a.date}>Publicado em {a.dateDisplay}</time><a class="link-with-icon" href={`/blog/${a.slug}/`}><strong>Ler artigo</strong> <Icon name="arrow-right" size={17} /></a></article>)}</div></div></section><script>document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll<HTMLElement>('[data-category]').forEach(a=>a.hidden=b.dataset.filter!=='todos'&&a.dataset.category!==b.dataset.filter)}));</script></Base>
+<Base title="Blog" description="100 artigos sobre aço, coberturas, especificação, compra e aplicações.">
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Conteúdo técnico</span>
+      <h1 class="display">Informação que ajuda a escolher e cotar.</h1>
+      <p class="lead">100 leituras práticas sobre produtos, aplicações, mercado e preparação de pedidos.</p>
+    </div>
+  </header>
+  <section class="section blog-index">
+    <div class="container">
+      <div class="filter-bar" aria-label="Filtrar artigos">
+        <button class="active" data-filter="todos">Todos</button>
+        {[...new Set(articles.map(article => article.category))].map(category => <button data-filter={category}>{category}</button>)}
+      </div>
+      <div id="articles" class="articles-grid">
+        {articles.map((article, index) => (
+          <article class="article-card" data-category={article.category}>
+            <a class:list={['article-card-image', { 'has-image': imageSlugs.has(article.slug) }]} href={`/blog/${article.slug}/`} aria-label={`Ler ${article.title}`}>
+              {imageSlugs.has(article.slug)
+                ? <img src={`/images/blog/${article.slug}.webp`} alt={`Capa do artigo ${article.title}`} width="1440" height="810" loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
+                : <span aria-hidden="true">Grupo ABR</span>}
+            </a>
+            <div class="article-card-body">
+              <span class="eyebrow">{article.category}</span>
+              <h2><a href={`/blog/${article.slug}/`}>{article.title}</a></h2>
+              <p>{article.summary}</p>
+              <time datetime={article.date}>Publicado em {article.dateDisplay}</time>
+              <a class="link-with-icon" href={`/blog/${article.slug}/`}><strong>Ler artigo</strong> <Icon name="arrow-right" size={17} /></a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <script>
+    document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach(button => button.addEventListener('click', () => {
+      document.querySelectorAll('[data-filter]').forEach(item => item.classList.remove('active'));
+      button.classList.add('active');
+      document.querySelectorAll<HTMLElement>('[data-category]').forEach(article => {
+        article.hidden = button.dataset.filter !== 'todos' && article.dataset.category !== button.dataset.filter;
+      });
+    }));
+  </script>
+</Base>
