@@ -22,3 +22,9 @@ export function whatsappLink({ interest, page, position, code }: { interest: str
   const text = `Olá! Vim pelo site do Grupo ABR e gostaria de atendimento sobre ${interest}.\nOrigem: ${page}.\nBotão: ${position}.\nCódigo: ${code}.`;
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`;
 }
+
+export function departmentWhatsappLink({ number, department, page, code }: { number: string; department: string; page: string; code: string }) {
+  const normalizedNumber = number.replace(/\D/g, '');
+  const text = `Olá! Vim pelo site do Grupo ABR e gostaria de falar com o setor de ${department}.\nOrigem: ${page}.\nBotão: atendimento flutuante.\nCódigo: ${code}.`;
+  return `https://wa.me/${normalizedNumber}?text=${encodeURIComponent(text)}`;
+}
