@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from './Icon.astro';
+import TelhasDrawer from './TelhasDrawer.astro';
 import { products, productRouteSlug, type Product } from '../data/content';
 import { whatsappLink } from '../config';
 
@@ -40,7 +41,7 @@ const productHref = (slug: string) => `/produtos/${productRouteSlug(slug)}/`;
           {product.alert.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
         </aside>}
 
-        {product.sections?.length && <>
+        {product.slug !== 'telhas' && product.sections?.length && <>
           <h2>Modelos e detalhes</h2>
           <div class="product-variants">
             {product.sections.map((section) => <section class="product-variant">
@@ -50,6 +51,23 @@ const productHref = (slug: string) => `/produtos/${productRouteSlug(slug)}/`;
             </section>)}
           </div>
         </>}
+
+      </article>
+
+      <aside>
+        <div class="quote-box">
+          <span class="eyebrow">Cotação orientada</span>
+          <h2>Fale com o Grupo ABR</h2>
+          <p>Envie produto, medidas, quantidade e cidade de entrega.</p>
+          <a class="button" href={wa} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} brand /> Solicitar orçamento</a>
+          <hr>
+          <small>O clique abre uma conversa no WhatsApp com uma mensagem preenchida. Você decide quando enviar.</small>
+        </div>
+      </aside>
+
+      {product.slug === 'telhas' && <div class="product-drawer-span"><TelhasDrawer /></div>}
+
+      <article class="content product-rest">
 
         <h2>Aplicações</h2>
         <div class="chips">{product.applications.map((item) => <span class="chip">{item}</span>)}</div>
@@ -77,16 +95,11 @@ const productHref = (slug: string) => `/produtos/${productRouteSlug(slug)}/`;
         </>}
       </article>
 
-      <aside>
-        <div class="quote-box">
-          <span class="eyebrow">Cotação orientada</span>
-          <h2>Fale com o Grupo ABR</h2>
-          <p>Envie produto, medidas, quantidade e cidade de entrega.</p>
-          <a class="button" href={wa} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} brand /> Solicitar orçamento</a>
-          <hr>
-          <small>O clique abre uma conversa no WhatsApp com uma mensagem preenchida. Você decide quando enviar.</small>
-        </div>
-      </aside>
     </div>
   </section>
 </Base>
+
+<style>
+  .product-drawer-span { grid-column: 1 / -1; min-width: 0; }
+  .product-rest { grid-column: 1; }
+</style>

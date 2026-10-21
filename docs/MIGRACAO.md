@@ -11,7 +11,5 @@
 | `/tubos-e-metalons/` | `/produtos/tubos-e-metalons/` | 301 |
 | `/perfil-estrutural/` | `/produtos/perfis-estruturais/` | 301 |
 | `/orcamento/` | `/contato/` | 301 |
-| `/vergalhao-vergraf/` | — | 410 |
-| `/malha-vergraf/` | — | 410 |
 
 Demais URLs antigas devem ser extraídas do sitemap/servidor antes do go-live e mapeadas individualmente. Não usar redirecionamento geral para a home.

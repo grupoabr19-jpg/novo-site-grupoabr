@@ -49,7 +49,6 @@ public/images/heroes/acos-longos-laminados.jpg — 1920 x 800 px
 public/images/heroes/perfis-estruturais.jpg — 1920 x 800 px
 public/images/heroes/tubos-metalons.jpg — 1920 x 800 px
 public/images/heroes/malhas-trelicas.jpg — 1920 x 800 px
-public/images/heroes/abr-solar.jpg — 1920 x 800 px
 
 PÁGINAS INDIVIDUAIS DE PRODUTOS
 
@@ -64,7 +63,6 @@ public/images/products/vergalhoes.jpg — 1000 x 750 px
 public/images/products/tubos-metalons.jpg — 1000 x 750 px
 public/images/products/malhas-aco.jpg — 1000 x 750 px
 public/images/products/slitamento-corte.jpg — 1200 x 800 px
-public/images/products/estrutura-abr-solar.jpg — 1200 x 800 px
 
 PÁGINAS INSTITUCIONAIS
 

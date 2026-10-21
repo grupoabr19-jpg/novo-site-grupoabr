@@ -2006,40 +2006,6 @@
         "note":  "Este conteúdo é informativo e não substitui projeto, cálculo ou orientação de responsável técnico."
     },
     {
-        "slug":  "estruturas-para-energia-solar-perfis-tubos-e-galvanizacao",
-        "title":  "Estruturas para energia solar: perfis, tubos e galvanização",
-        "category":  "Mercado do Aço",
-        "summary":  "Painéis fotovoltaicos precisam de uma base firme, leve e durável.",
-        "date":  "2027-05-18",
-        "dateDisplay":  "18/05/2027",
-        "intro":  "O crescimento da energia solar em telhados e em solo aumentou a procura por estruturas de apoio. Aço galvanizado e perfis leves são bastante usados.",
-        "sections":  [
-                         {
-                             "heading":  "Estruturas em telhados",
-                             "body":  "Em coberturas metálicas, os painéis são fixados em perfis e suportes que se ligam às terças ou diretamente às telhas. A compatibilidade com o tipo de telha é essencial."
-                         },
-                         {
-                             "heading":  "Estruturas em solo",
-                             "body":  "Para usinas e fazendas solares, usam-se postes, vigas e travessas em perfis ou tubos. A fundação depende do solo e das cargas de vento."
-                         },
-                         {
-                             "heading":  "Proteção contra corrosão",
-                             "body":  "Como as estruturas ficam décadas ao relento, a galvanização e os cuidados com cortes e furos são importantes para a durabilidade. Especifique a proteção conforme o ambiente."
-                         }
-                     ],
-        "checklist":  {
-                          "title":  "Checklist para estruturas solares",
-                          "items":  [
-                                        "Tipo de cobertura ou solo",
-                                        "Perfis e tubos do projeto",
-                                        "Carga de vento e peso dos módulos",
-                                        "Galvanização e proteção",
-                                        "Fixações compatíveis"
-                                    ]
-                      },
-        "note":  "Este conteúdo é informativo e não substitui projeto, cálculo ou orientação de responsável técnico."
-    },
-    {
         "slug":  "retirar-no-balcao-ou-receber-na-obra-qual-escolher",
         "title":  "Retirar no balcão ou receber na obra: qual escolher",
         "category":  "Soluções ABR",
@@ -2545,40 +2511,6 @@
                                         "Proteção anticorrosiva",
                                         "Fixação do plástico",
                                         "Plano de manutenção"
-                                    ]
-                      },
-        "note":  "Este conteúdo é informativo e não substitui projeto, cálculo ou orientação de responsável técnico."
-    },
-    {
-        "slug":  "vergalhao-com-grafeno-o-que-se-sabe-e-que-perguntas-fazer",
-        "title":  "Vergalhão com grafeno: o que se sabe e que perguntas fazer",
-        "category":  "Mercado do Aço",
-        "summary":  "Uma inovação que desperta interesse e merece análise técnica cuidadosa.",
-        "date":  "2027-07-13",
-        "dateDisplay":  "13/07/2027",
-        "intro":  "O Grupo ABR é licenciado da VerGraf, marca de vergalhões e malhas com grafeno. Como toda novidade, o produto desperta curiosidade e pede informações técnicas claras antes da especificação.",
-        "sections":  [
-                         {
-                             "heading":  "A proposta do produto",
-                             "body":  "Segundo o fabricante, o vergalhão com grafeno busca oferecer menor peso, maior resistência à tração e resistência à corrosão em relação ao aço convencional. Esses números devem ser conferidos em documentação técnica atual."
-                         },
-                         {
-                             "heading":  "Onde pode fazer diferença",
-                             "body":  "Em ambientes agressivos, como orla marítima e estruturas expostas à umidade, a corrosão da armadura é um problema conhecido. Materiais não corrosivos despertam interesse para esses casos."
-                         },
-                         {
-                             "heading":  "Perguntas para o projetista",
-                             "body":  "Peça laudos, ensaios e a aprovação do responsável técnico. Verifique a norma aplicável, as condições de ancoragem e o comportamento esperado no projeto estrutural antes de qualquer substituição."
-                         }
-                     ],
-        "checklist":  {
-                          "title":  "Perguntas antes de especificar",
-                          "items":  [
-                                        "Laudos e ensaios disponíveis",
-                                        "Norma aplicável ao produto",
-                                        "Aprovação do projetista",
-                                        "Condições de ancoragem e emendas",
-                                        "Custo comparado ao longo da vida útil"
                                     ]
                       },
         "note":  "Este conteúdo é informativo e não substitui projeto, cálculo ou orientação de responsável técnico."

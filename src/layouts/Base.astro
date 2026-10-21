@@ -55,7 +55,6 @@ const jsonLd = { '@context':'https://schema.org','@type':'Organization',name:sit
           <a href="https://tourbrasil360.com/fabrica/grupo-abr/pinheiral/" target="_blank" rel="noopener">Unidade – Pinheiral RJ</a>
         </div>
       </details>
-      <a href="/produtos/abr-solar/">ABR Solar</a>
       <details>
         <summary>Conteúdos</summary>
         <div class="mega compact">
@@ -78,7 +77,7 @@ const jsonLd = { '@context':'https://schema.org','@type':'Organization',name:sit
   </div></div>
 </header>
 <main id="conteudo"><slot /></main>
-<footer><div class="container footer-grid"><div><a class="brand inverse" href="/"><img src="/brand/grupo-abr-logo-branca.svg" alt="Grupo ABR — Seu Parceiraço" width="150" height="87"></a><p>Força para construir. Agilidade para entregar. Parceria para crescer.</p></div><div><h2>Produtos</h2><a href="/produtos/telhas/">Telhas</a><a href="/produtos/bobina-slitada/">Bobina Slitada</a><a href="/produtos/laminados/">Laminados</a><a href="/produtos/abr-solar/">ABR Solar</a></div><div><h2>Grupo ABR</h2><a href="/empresa/">Empresa</a><a href="/blog/">Blog</a><a href="/downloads/">Downloads</a><a href="/trabalhe-conosco/">Trabalhe conosco</a><a href="/seja-um-parceiraco/">Seja um Parceiraço</a></div><div><h2>Fale conosco</h2><a href={site.phoneHref}>{site.phoneDisplay}</a><a href={`mailto:${site.email}`}>{site.email}</a><p>{site.address}<br>CEP {site.postalCode}</p></div></div><div class="container footer-bottom"><span>© {new Date().getFullYear()} Grupo ABR. Todos os direitos reservados.</span><span><a href="/politica-de-privacidade/">Privacidade</a> · <a href="/politica-de-cookies/">Cookies</a></span></div></footer>
+<footer><div class="container footer-grid"><div><a class="brand inverse" href="/"><img src="/brand/grupo-abr-logo-branca.svg" alt="Grupo ABR — Seu Parceiraço" width="150" height="87"></a><p>Força para construir. Agilidade para entregar. Parceria para crescer.</p></div><div><h2>Produtos</h2><a href="/produtos/telhas/">Telhas</a><a href="/produtos/bobina-slitada/">Bobina Slitada</a><a href="/produtos/laminados/">Laminados</a></div><div><h2>Grupo ABR</h2><a href="/empresa/">Empresa</a><a href="/blog/">Blog</a><a href="/downloads/">Downloads</a><a href="/trabalhe-conosco/">Trabalhe conosco</a><a href="/seja-um-parceiraco/">Seja um Parceiraço</a></div><div><h2>Fale conosco</h2><a href={site.phoneHref}>{site.phoneDisplay}</a><a href={`mailto:${site.email}`}>{site.email}</a><p>{site.address}<br>CEP {site.postalCode}</p></div></div><div class="container footer-bottom"><span>© {new Date().getFullYear()} Grupo ABR. Todos os direitos reservados.</span><span><a href="/politica-de-privacidade/">Privacidade</a> · <a href="/politica-de-cookies/">Cookies</a></span></div></footer>
 <a class="float-wa" href={wa} target="_blank" rel="noopener" aria-label="Falar com o Grupo ABR pelo WhatsApp"><Icon name="whatsapp" size={28} brand /></a>
 <script>
   const btn=document.querySelector('.menu-toggle'); const nav=document.querySelector('#main-nav'); btn?.addEventListener('click',()=>{const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));nav?.classList.toggle('open',!open)});

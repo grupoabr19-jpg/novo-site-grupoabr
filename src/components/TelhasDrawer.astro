@@ -1,0 +1,241 @@
+---
+import Icon from './Icon.astro';
+import { whatsappLink } from '../config';
+
+const models = [
+  {
+    id: 'trapezoidal',
+    title: 'Metálica trapezoidal',
+    short: 'Coberturas, fachadas e fechamentos',
+    eyebrow: 'Resistência e versatilidade',
+    image: '/images/products/telhas/telha-trapezoidal.jpg',
+    alt: 'Telha metálica trapezoidal do Grupo ABR',
+    paragraphs: [
+      'Conformada a partir de aço plano galvanizado ou Galvalume, é utilizada em coberturas e fechamentos laterais de instalações residenciais, comerciais e industriais.',
+      'A geometria deve ser escolhida conforme inclinação, vão entre terças, carregamentos e capacidade de vazão previstos no projeto.'
+    ],
+    bullets: ['TP 25 para coberturas, fachadas e fechamentos', 'TP 40 para aplicações com sobrecargas concentradas', 'TP 100 para baixa inclinação e maior vazão de água'],
+    tags: ['TP 25', 'TP 35', 'TP 40', 'TP 100'],
+    href: '/produtos/telhas-metalicas-trapezoidais/'
+  },
+  {
+    id: 'ondulada',
+    title: 'Ondulada',
+    short: 'Perfil flexível para formas curvas',
+    eyebrow: 'Geometria contínua',
+    image: '/images/products/telhas/telha-ondulada.jpg',
+    alt: 'Telha metálica ondulada do Grupo ABR',
+    paragraphs: [
+      'O perfil ondulado é especialmente indicado para coberturas em forma de arco, em razão de sua flexibilidade, e também pode ser empregado em fechamentos laterais.',
+      'Espessura, comprimento, apoios e fixação precisam ser compatibilizados com o projeto da cobertura.'
+    ],
+    bullets: ['Coberturas curvas previstas em projeto', 'Fechamentos laterais', 'Comprimento e acabamento sob consulta'],
+    tags: ['Cobertura', 'Fechamento', 'Curvatura'],
+    href: '/produtos/telhas-onduladas/'
+  },
+  {
+    id: 'translucida',
+    title: 'Translúcida ou leitosa',
+    short: 'Iluminação natural na cobertura',
+    eyebrow: 'Mais luz, menos consumo',
+    image: '/images/products/telhas/telha-translucida.jpg',
+    alt: 'Telha translúcida leitosa para iluminação natural',
+    paragraphs: [
+      'A telha translúcida permite a entrada de até 70% da luz incidente e ajuda a distribuir a luminosidade natural pelo ambiente.',
+      'Produzida em polipropileno, é resistente aos raios solares e prática de instalar. A versão leitosa reduz a transparência sem eliminar a entrada de luz.'
+    ],
+    bullets: ['Faixas de iluminação em galpões e depósitos', 'Compatibilidade com o perfil da cobertura', 'Versões translúcida e leitosa'],
+    tags: ['Luz natural', 'Polipropileno', 'Até 70% de luz'],
+    href: '/produtos/telhas-translucidas-leitosas/'
+  },
+  {
+    id: 'termoacustica',
+    title: 'Termoacústica',
+    short: 'Isolamento com núcleo de EPS',
+    eyebrow: 'Conforto térmico e acústico',
+    image: '/images/products/telhas/telha-termoacustica.jpg',
+    alt: 'Telha termoacústica com duas faces metálicas e núcleo isolante',
+    paragraphs: [
+      'As telhas com núcleo de EPS são indicadas para isolamento térmico e acústico em obras comerciais, industriais e residenciais.',
+      'A composição ajuda a reduzir ruídos externos e a troca de calor na cobertura. Perfil, faces e espessura do núcleo devem ser definidos na cotação.'
+    ],
+    bullets: ['Isolamento térmico e redução de ruídos', 'Boa vedação e acabamento', 'Núcleo que não absorve água'],
+    tags: ['TP 25', 'TP 35', 'TP 40', 'EPS'],
+    href: '/produtos/telhas-sanduiche-eps/'
+  },
+  {
+    id: 'forro',
+    title: 'Termoacústica tipo forro',
+    short: 'Acabamento inferior integrado',
+    eyebrow: 'Isolamento com face aparente',
+    image: '/images/products/telhas/telha-forro.jpg',
+    alt: 'Telha termoacústica tipo forro com acabamento inferior plano',
+    paragraphs: [
+      'Produzida com chapa de aço Galvalume e núcleo isolante, a telha tipo forro possui a face inferior mais retilínea para permanecer aparente.',
+      'A solução combina conforto térmico, resistência e acabamento em projetos residenciais, comerciais ou industriais.'
+    ],
+    bullets: ['Face inferior destinada a permanecer aparente', 'Pode reduzir etapas de acabamento conforme o projeto', 'Núcleo e cores definidos na cotação'],
+    tags: ['TP 25', 'TP 35', 'TP 40', 'Ond 17'],
+    href: '/produtos/telhas-termoacusticas-tipo-forro/'
+  }
+];
+---
+
+<section class="roofing-selector" data-roof-selector aria-labelledby="roofing-selector-title">
+  <div class="roofing-selector-heading">
+    <span class="eyebrow">Explore os modelos</span>
+    <h2 id="roofing-selector-title">Uma cobertura, diferentes necessidades.</h2>
+    <p>Selecione uma gaveta para comparar aplicações, características e opções de cada telha.</p>
+  </div>
+
+  <div class="roofing-selector-grid">
+    <div class="roofing-drawers" role="tablist" aria-label="Modelos de telhas" aria-orientation="vertical">
+      {models.map((model, index) => <button
+        class:list={['roofing-drawer', { active: index === 0 }]}
+        id={`roof-tab-${model.id}`}
+        type="button"
+        role="tab"
+        aria-selected={index === 0 ? 'true' : 'false'}
+        aria-controls={`roof-panel-${model.id}`}
+        tabindex={index === 0 ? 0 : -1}
+        data-roof-tab={model.id}
+      >
+        <span class="roofing-drawer-number">{String(index + 1).padStart(2, '0')}</span>
+        <span><strong>{model.title}</strong><small>{model.short}</small></span>
+        <Icon name="arrow-right" size={20} />
+      </button>)}
+    </div>
+
+    <div class="roofing-panels">
+      {models.map((model, index) => {
+        const quoteUrl = whatsappLink({
+          interest: `telha ${model.title.toLowerCase()}`,
+          page: 'página Telhas',
+          position: `gaveta ${model.title}`,
+          code: `SITE-TELHAS-${model.id.toUpperCase()}`
+        });
+        return <article
+          class="roofing-panel"
+          id={`roof-panel-${model.id}`}
+          role="tabpanel"
+          aria-labelledby={`roof-tab-${model.id}`}
+          tabindex="0"
+          hidden={index !== 0}
+          data-roof-panel={model.id}
+        >
+          <figure>
+            <img src={model.image} alt={model.alt} width="750" height="520" loading={index === 0 ? 'eager' : 'lazy'} />
+            <figcaption>{model.title}</figcaption>
+          </figure>
+          <div class="roofing-panel-copy">
+            <span class="eyebrow">{model.eyebrow}</span>
+            <h3>{model.title}</h3>
+            {model.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            <ul>{model.bullets.map((item) => <li>{item}</li>)}</ul>
+            <div class="roofing-tags">{model.tags.map((tag) => <span>{tag}</span>)}</div>
+            <div class="roofing-panel-actions">
+              <a class="button" href={quoteUrl} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} brand /> Solicitar orçamento</a>
+              <a class="roofing-detail-link" href={model.href}>Ver página do modelo <Icon name="arrow-right" size={17} /></a>
+            </div>
+          </div>
+        </article>;
+      })}
+    </div>
+  </div>
+</section>
+
+<script>
+  const selector = document.querySelector('[data-roof-selector]');
+  if (selector) {
+    const tabs = Array.from(selector.querySelectorAll<HTMLButtonElement>('[data-roof-tab]'));
+    const panels = Array.from(selector.querySelectorAll<HTMLElement>('[data-roof-panel]'));
+
+    const activate = (tab: HTMLButtonElement, moveFocus = false) => {
+      const id = tab.getAttribute('data-roof-tab');
+      tabs.forEach((item) => {
+        const selected = item === tab;
+        item.classList.toggle('active', selected);
+        item.setAttribute('aria-selected', String(selected));
+        item.setAttribute('tabindex', selected ? '0' : '-1');
+      });
+      panels.forEach((panel) => { panel.hidden = panel.getAttribute('data-roof-panel') !== id; });
+      if (moveFocus) tab.focus();
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activate(tab));
+      tab.addEventListener('keydown', (event: KeyboardEvent) => {
+        let nextIndex;
+        if (event.key === 'ArrowDown' || event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+        if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+        if (event.key === 'Home') nextIndex = 0;
+        if (event.key === 'End') nextIndex = tabs.length - 1;
+        if (nextIndex === undefined) return;
+        event.preventDefault();
+        activate(tabs[nextIndex], true);
+      });
+    });
+  }
+</script>
+
+<style>
+  .roofing-selector { margin-top: 58px; }
+  .roofing-selector-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 48px; align-items: end; margin-bottom: 28px; }
+  .roofing-selector-heading .eyebrow { grid-column: 1 / -1; margin-bottom: -6px; }
+  .roofing-selector-heading h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1; letter-spacing: -.045em; }
+  .roofing-selector-heading p { margin: 0; color: var(--muted); }
+  .roofing-selector-grid { display: grid; grid-template-columns: minmax(260px, .72fr) minmax(0, 1.55fr); background: var(--navy); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); }
+  .roofing-drawers { align-self: stretch; padding: 14px 0 14px 14px; background: #eef1f6; }
+  .roofing-drawer { position: relative; z-index: 1; width: 100%; min-height: 92px; display: grid; grid-template-columns: 34px minmax(0, 1fr) 22px; gap: 12px; align-items: center; padding: 16px 18px; border: 0; border-bottom: 1px solid #d7dce6; background: transparent; color: var(--ink); text-align: left; cursor: pointer; transition: transform .25s ease, color .25s ease, background .25s ease, box-shadow .25s ease; }
+  .roofing-drawer:last-child { border-bottom: 0; }
+  .roofing-drawer:hover { background: #fff; }
+  .roofing-drawer.active { z-index: 2; transform: translateX(14px); background: var(--orange); color: #111; box-shadow: -10px 12px 28px rgba(20,39,88,.14); }
+  .roofing-drawer-number { align-self: start; color: #8d5410; font-size: .72rem; font-weight: 850; letter-spacing: .08em; }
+  .roofing-drawer strong, .roofing-drawer small { display: block; }
+  .roofing-drawer strong { font-size: 1rem; line-height: 1.15; }
+  .roofing-drawer small { margin-top: 5px; color: #667085; font-size: .74rem; line-height: 1.35; }
+  .roofing-drawer.active small { color: #382400; }
+  .roofing-drawer :global(svg) { transition: transform .25s ease; }
+  .roofing-drawer.active :global(svg) { transform: translateX(4px); }
+  .roofing-panels { min-width: 0; background: var(--navy); color: white; }
+  .roofing-panel { min-height: 590px; animation: roof-panel-in .38s ease both; }
+  .roofing-panel[hidden] { display: none; }
+  .roofing-panel figure { position: relative; height: 290px; margin: 0; overflow: hidden; background: white; }
+  .roofing-panel figure::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 58%, rgba(10,24,55,.72)); pointer-events: none; }
+  .roofing-panel img { width: 100%; height: 100%; object-fit: contain; transition: transform .6s ease; }
+  .roofing-panel:hover img { transform: scale(1.025); }
+  .roofing-panel figcaption { position: absolute; z-index: 1; left: 26px; bottom: 18px; color: #fff; font-size: .75rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+  .roofing-panel-copy { padding: 30px 34px 34px; }
+  .roofing-panel-copy .eyebrow { color: #ffb34d; margin-bottom: 8px; }
+  .roofing-panel-copy h3 { margin: 0 0 14px; color: white; font-size: clamp(1.7rem, 3vw, 2.45rem); line-height: 1.05; }
+  .roofing-panel-copy p, .roofing-panel-copy li { color: #d8def0; }
+  .roofing-panel-copy p { margin: 8px 0; }
+  .roofing-panel-copy ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0; padding: 0; list-style: none; }
+  .roofing-panel-copy li { padding-left: 14px; border-left: 3px solid var(--orange); font-size: .84rem; line-height: 1.45; }
+  .roofing-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .roofing-tags span { padding: 6px 10px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; color: #fff; font-size: .75rem; font-weight: 750; }
+  .roofing-panel-actions { display: flex; align-items: center; gap: 22px; margin-top: 24px; }
+  .roofing-panel-actions .button { min-height: 44px; padding-inline: 17px; }
+  .roofing-detail-link { display: inline-flex; align-items: center; gap: 7px; color: #fff; font-size: .82rem; font-weight: 800; }
+  .roofing-detail-link:hover { color: #ffb34d; }
+  @keyframes roof-panel-in { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 980px) {
+    .roofing-selector-heading { grid-template-columns: 1fr; }
+    .roofing-selector-heading .eyebrow { grid-column: auto; }
+    .roofing-selector-grid { grid-template-columns: 1fr; }
+    .roofing-drawers { display: flex; gap: 6px; overflow-x: auto; padding: 10px; scroll-snap-type: x proximity; }
+    .roofing-drawer { min-width: 240px; min-height: 80px; border: 0; border-radius: 8px; background: #fff; scroll-snap-align: start; }
+    .roofing-drawer.active { transform: none; }
+  }
+  @media (max-width: 680px) {
+    .roofing-selector { margin-top: 46px; }
+    .roofing-selector-grid { margin-inline: -14px; border-radius: 0; }
+    .roofing-panel { min-height: 0; }
+    .roofing-panel figure { height: 250px; }
+    .roofing-panel-copy { padding: 26px 22px 30px; }
+    .roofing-panel-copy ul { grid-template-columns: 1fr; }
+    .roofing-panel-actions { align-items: stretch; flex-direction: column; gap: 16px; }
+    .roofing-panel-actions .button { width: 100%; }
+    .roofing-detail-link { justify-content: center; }
+  }
+</style>
