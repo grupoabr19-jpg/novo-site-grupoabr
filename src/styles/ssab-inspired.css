@@ -270,6 +270,26 @@ body {
   background-repeat: no-repeat;
 }
 
+.slide.slide-dark {
+  color: #fff;
+  background-image:
+    linear-gradient(90deg, rgba(10, 20, 46, .18) 0%, rgba(10, 20, 46, .08) 48%, rgba(10, 20, 46, 0) 72%),
+    var(--hero-image);
+}
+
+.hero .slide-dark .lead { color: #e2e7f4; }
+.hero .slide-dark .eyebrow { color: #ffad43; }
+.hero .slide-dark .button.secondary {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .62);
+}
+
+.hero .slide-dark .button.secondary:hover {
+  color: var(--navy);
+  background: #fff;
+  border-color: #fff;
+}
+
 .slide .container {
   position: relative;
   z-index: 2;
@@ -1374,9 +1394,15 @@ footer {
       linear-gradient(90deg, rgba(255, 250, 242, .97) 0%, rgba(255, 250, 242, .88) 58%, rgba(255, 250, 242, .58) 100%),
       var(--hero-image);
   }
+  .slide.slide-dark {
+    background-image:
+      linear-gradient(90deg, rgba(10, 20, 46, .3) 0%, rgba(10, 20, 46, .16) 62%, rgba(10, 20, 46, .08) 100%),
+      var(--hero-image);
+  }
 }
 
 @media (max-width: 600px) {
+  .slide.slide-dark { background-position: center, 28% center; }
   .contact-address h2 { font-size: clamp(2rem, 10vw, 2.65rem); }
   .contact-map, .contact-map iframe { min-height: 340px; height: 340px; }
   .product-variants { grid-template-columns: 1fr; }
