@@ -781,7 +781,7 @@ body {
 .testimonial-stage { position: relative; width: min(600px, 68vw); min-height: 470px; display: grid; place-items: center; }
 .testimonial-backdrop { position: absolute; width: 62%; height: 82%; top: 5%; left: 7%; border-radius: 13px; background: #1c3b86; box-shadow: 28px 26px 38px rgba(20, 45, 100, .22); }
 .testimonial-card { position: relative; z-index: 1; width: 100%; min-height: 390px; padding: 68px 58px 54px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-radius: 13px; background: #fff; box-shadow: 0 12px 35px rgba(20, 39, 88, .15); }
-.testimonial-avatar { width: 82px; height: 82px; display: grid; place-items: center; margin-bottom: 30px; overflow: hidden; border: 3px solid #fff; border-radius: 50%; background: #d9e4f7; color: var(--navy); font-size: 1.15rem; font-weight: 850; box-shadow: 0 7px 20px rgba(20, 39, 88, .2); }
+.testimonial-avatar { width: 62px; height: 62px; display: grid; place-items: center; margin-bottom: 24px; overflow: hidden; border: 3px solid #fff; border-radius: 50%; background: #d9e4f7; color: var(--navy); font-size: 1rem; font-weight: 850; box-shadow: 0 7px 20px rgba(20, 39, 88, .2); }
 .testimonial-avatar img,
 .testimonial-avatar span { grid-area: 1 / 1; }
 .testimonial-avatar img {
@@ -789,8 +789,6 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transform: scale(2.25);
-  transform-origin: 52% 42%;
 }
 .testimonial-avatar.has-photo img { opacity: 1; }
 .testimonial-avatar.has-photo span { opacity: 0; }
@@ -1430,7 +1428,7 @@ footer {
   .testimonial-stage { width: calc(100vw - 88px); min-height: 410px; }
   .testimonial-card { min-height: 350px; padding: 48px 24px 34px; }
   .testimonial-card blockquote { font-size: 1rem; line-height: 1.55; }
-  .testimonial-avatar { width: 68px; height: 68px; margin-bottom: 22px; }
+  .testimonial-avatar { width: 54px; height: 54px; margin-bottom: 20px; }
   .testimonial-nav { flex-basis: 34px; width: 34px; height: 34px; }
   .work-card { flex-basis: 82vw; }
   .work-image { height: 330px; }
