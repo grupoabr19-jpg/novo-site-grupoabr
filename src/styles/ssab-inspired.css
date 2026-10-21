@@ -20,16 +20,10 @@ body {
   color: var(--blue);
 }
 
-.topbar-contact,
 .topbar-channels,
 .social-link {
   display: inline-flex;
   align-items: center;
-}
-
-.topbar-contact {
-  gap: 6px;
-  color: var(--blue);
 }
 
 .topbar-channels {
@@ -70,6 +64,41 @@ body {
   transform: translateY(-1px);
 }
 
+.phone-reveal {
+  justify-content: flex-start;
+  gap: 7px;
+  width: 28px;
+  padding-inline: 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 999px;
+  transition: width .28s ease, color .2s ease, background-color .2s ease, transform .2s ease;
+}
+
+.phone-reveal .site-icon {
+  flex: 0 0 16px;
+}
+
+.phone-reveal-text {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  font-size: .72rem;
+  letter-spacing: .01em;
+  transition: max-width .28s ease, opacity .18s ease;
+}
+
+.phone-reveal:hover,
+.phone-reveal:focus-visible {
+  width: 170px;
+}
+
+.phone-reveal:hover .phone-reveal-text,
+.phone-reveal:focus-visible .phone-reveal-text {
+  max-width: 140px;
+  opacity: 1;
+}
+
 .topbar .social-link:hover .site-icon {
   color: #fff;
 }
@@ -83,6 +112,18 @@ body {
 
 .nav {
   height: 72px;
+}
+
+@media (min-width: 1081px) {
+  .nav {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr);
+    gap: 24px;
+  }
+
+  .nav-wrap .brand { justify-self: start; }
+  .nav-wrap nav { justify-self: center; margin-left: 0; }
+  .nav-cta { justify-self: end; }
 }
 
 .nav-wrap nav {
@@ -1258,10 +1299,10 @@ footer {
   .values-panel { padding: 24px 20px; }
   .topbar { font-size: .72rem; }
   .topbar .container { gap: 10px; }
-  .topbar-contact > .site-icon { display: none; }
-  .topbar-whatsapp > .site-icon { display: inline-block; }
+  .topbar .site-icon { display: inline-block; }
   .topbar-channels { gap: 7px; }
   .social-link { width: 28px; height: 28px; }
+  .phone-reveal-text { display: none; }
   .hero, .slides, .slide { min-height: 650px; }
   .slide { padding: 52px 0 120px; }
   .display { font-size: clamp(2.65rem, 13vw, 4rem); }

@@ -18,8 +18,11 @@ const jsonLd = { '@context':'https://schema.org','@type':'Organization',name:sit
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="site-header">
   <div class="topbar"><div class="container">
-    <a class="topbar-contact" href={site.phoneHref}><Icon name="phone" size={15} /> Ligue: <strong>{site.phoneDisplay}</strong></a>
     <div class="topbar-channels">
+      <a class="social-link phone-reveal" href={site.phoneHref} aria-label={`Ligar para o Grupo ABR: ${site.phoneDisplay}`}>
+        <Icon name="phone" size={16} />
+        <span class="phone-reveal-text"><span>Ligue:</span> <strong>{site.phoneDisplay}</strong></span>
+      </a>
       <a class="social-link topbar-whatsapp" href={wa} target="_blank" rel="noopener" aria-label="WhatsApp do Grupo ABR"><Icon name="whatsapp" size={17} brand /></a>
       <a class="social-link" href={site.instagram} target="_blank" rel="noopener" aria-label="Instagram do Grupo ABR"><Icon name="instagram" size={16} brand /></a>
       <a class="social-link" href={site.tiktok} target="_blank" rel="noopener" aria-label="TikTok do Grupo ABR"><Icon name="tiktok" size={15} brand /></a>
